@@ -95,7 +95,6 @@ public class Tablero extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         JLabel2.setBackground(new java.awt.Color(0, 0, 0));
-        JLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/jjjj.gif"))); // NOI18N
         JLabel2.setOpaque(true);
         JLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -111,7 +110,6 @@ public class Tablero extends javax.swing.JFrame {
         JLabel4.setOpaque(true);
 
         JLabel3.setBackground(new java.awt.Color(153, 0, 0));
-        JLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/jjjj.gif"))); // NOI18N
         JLabel3.setOpaque(true);
 
         JLabel6.setBackground(new java.awt.Color(0, 0, 0));
