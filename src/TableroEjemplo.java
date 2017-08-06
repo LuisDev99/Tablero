@@ -119,7 +119,7 @@ public class TableroEjemplo extends javax.swing.JFrame {
 
         jLabel1.setText("jLabel1");
 
-        jLabel2.setText("jLabel1");
+        jLabel2.setText("Te piso");
 
         jLabel3.setText("jLabel1");
 
