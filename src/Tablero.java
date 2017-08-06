@@ -14,51 +14,7 @@ import javax.swing.JLabel;
  * @author dell
  */
 public class Tablero extends javax.swing.JFrame {
-  JLabel[][] arreglo_labels = new JLabel[6][6];
-  /*
-  arreglo_labels[0][0] = jLabel1;
-  arreglo_labels[][] = Label;
-  arreglo_labels[][] = Label;
-  arreglo_labels[][] = Label;
-  arreglo_labels[][] = Label;
-  arreglo_labels[][] = Label;
-   
-    arreglo_labels[][] = Label;
-  arreglo_labels[][] = Label;
-  arreglo_labels[][] = Label;
-  arreglo_labels[][] = Label;
-  arreglo_labels[][] = Label;
-  arreglo_labels[][] = Label;
-   
-     arreglo_labels[][] = Label;
-  arreglo_labels[][] = Label;
-  arreglo_labels[][] = Label;
-  arreglo_labels[][] = Label;
-  arreglo_labels[][] = Label;
-  arreglo_labels[][] = Label;
-   
-     arreglo_labels[][] = Label;
-  arreglo_labels[][] = Label;
-  arreglo_labels[][] = Label;
-  arreglo_labels[][] = Label;
-  arreglo_labels[][] = Label;
-  arreglo_labels[][] = Label;
-   
-     arreglo_labels[][] = Label;
-  arreglo_labels[][] = Label;
-  arreglo_labels[][] = Label;
-  arreglo_labels[][] = Label;
-  arreglo_labels[][] = Label;
-  arreglo_labels[][] = Label;
-   
-     arreglo_labels[][] = Label;
-  arreglo_labels[][] = Label;
-  arreglo_labels[][] = Label;
-  arreglo_labels[][] = Label;
-  arreglo_labels[][] = Label;
-  arreglo_labels[][] = Label;
-   
-    */
+   public static JLabel[][] arreglo_labels = new JLabel[6][6];
    
    public static boolean v = false;
     
@@ -498,4 +454,49 @@ public class Tablero extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     // End of variables declaration//GEN-END:variables
+public void posicionamiento_de_labels_en_arreglo(){
+  arreglo_labels[0][0] = jLabel1;
+  arreglo_labels[0][1] = jLabel2;
+  arreglo_labels[0][2] = jLabel3;
+  arreglo_labels[0][3] = jLabel4;
+  arreglo_labels[0][4] = jLabel5;
+  arreglo_labels[0][5] = jLabel6; 
+  
+  arreglo_labels[1][0] = jLabel7;
+  arreglo_labels[1][1] = jLabel8;
+  arreglo_labels[1][2] = jLabel9;
+  arreglo_labels[1][3] = jLabel10; 
+  arreglo_labels[1][4] = jLabel11;
+  arreglo_labels[1][5] = jLabel12;
+  
+  arreglo_labels[2][0] = jLabel13;
+  arreglo_labels[2][1] = jLabel14; 
+  arreglo_labels[2][2] = jLabel15;
+  arreglo_labels[2][3] = jLabel16;
+  arreglo_labels[2][4] = jLabel17;
+  arreglo_labels[2][5] = jLabel18;
+   
+  arreglo_labels[3][0] = jLabel19;
+  arreglo_labels[3][1] = jLabel20;
+  arreglo_labels[3][2] = jLabel21;
+  arreglo_labels[3][3] = jLabel22;
+  arreglo_labels[3][4] = jLabel23;
+  arreglo_labels[3][5] = jLabel24;
+  
+  arreglo_labels[4][0] = jLabel25;
+  arreglo_labels[4][1] = jLabel26;
+  arreglo_labels[4][2] = jLabel27;
+  arreglo_labels[4][3] = jLabel28;
+  arreglo_labels[4][4] = jLabel29;
+  arreglo_labels[4][5] = jLabel30;
+  
+  arreglo_labels[5][0] = jLabel31;
+  arreglo_labels[5][1] = jLabel32;
+  arreglo_labels[5][2] = jLabel33;
+  arreglo_labels[5][3] = jLabel34;
+  arreglo_labels[5][4] = jLabel35;
+  arreglo_labels[5][5] = jLabel36;
+ 
+}
+
 }
