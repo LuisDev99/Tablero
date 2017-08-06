@@ -1,6 +1,4 @@
 
-import java.net.URL;
-import javax.swing.ImageIcon;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -359,20 +357,6 @@ public class Tablero extends javax.swing.JFrame {
 
     private void JLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JLabel10MouseClicked
        
-        if( v == true)
-        {
-            ImageIcon icon = new ImageIcon(getClass().getResource("copyyy-iloveimg-resized.gif")); /*fantasmas-halloween-gifs-156x130[4].gif*/
-            JLabel10.setIcon(icon);
-            JLabel2.setIcon(null);
-            
-        }
-        else
-        {
-             JLabel10.setIcon(null);
-             v = false;
-        }
-        
-        v = false; 
     }//GEN-LAST:event_JLabel10MouseClicked
     
     /**
