@@ -91,6 +91,11 @@ public class Tablero extends javax.swing.JFrame {
         jLabel53.setText("jLabel1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         JLabel2.setBackground(new java.awt.Color(0, 0, 0));
         JLabel2.setOpaque(true);
@@ -358,6 +363,10 @@ public class Tablero extends javax.swing.JFrame {
     private void JLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JLabel10MouseClicked
        
     }//GEN-LAST:event_JLabel10MouseClicked
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+      
+    }//GEN-LAST:event_formWindowClosing
     
     /**
      * @param args the command line arguments
