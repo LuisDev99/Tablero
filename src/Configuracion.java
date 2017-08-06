@@ -85,6 +85,11 @@ public class Configuracion extends javax.swing.JFrame {
         jRadioButton5.setText("Manual");
 
         jButton1.setText("Poner por defalto");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -105,8 +110,8 @@ public class Configuracion extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(65, 65, 65)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jRadioButton5)
-                            .addComponent(jRadioButton4)))
+                            .addComponent(jRadioButton4)
+                            .addComponent(jRadioButton5)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(34, 34, 34)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -150,11 +155,21 @@ public class Configuracion extends javax.swing.JFrame {
 
     private void Salir_Configuracion(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Salir_Configuracion
         /* salir de configuracion */
+        if(jRadioButton1.getSelectedObjects() == null &&
+           jRadioButton2.getSelectedObjects() == null &&
+           jRadioButton3.getSelectedObjects() == null ||
+           jRadioButton4.getSelectedObjects() == null &&
+           jRadioButton5.getSelectedObjects() == null){
+            
+            JOptionPane.showMessageDialog(null, "Porfavor selecciona todos los botones para guardar la configuracion!");
+            
+            
+        }else{
         Menu_principal menup = new Menu_principal();
        confirme = true;
         menup.setVisible(true);
        this.dispose();
-        
+        }
     }//GEN-LAST:event_Salir_Configuracion
 
     private void Salir_config(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_Salir_config
@@ -162,7 +177,7 @@ public class Configuracion extends javax.swing.JFrame {
         if(confirme == false){
          this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         String ObjButtons[] = {"Yes","No"};
-        int PromptResult = JOptionPane.showOptionDialog(null,"¿Estas seguro que quieres salir, no has guardado los datos?","Confirmar",JOptionPane.DEFAULT_OPTION,JOptionPane.WARNING_MESSAGE,null,ObjButtons,ObjButtons[1]);
+        int PromptResult = JOptionPane.showOptionDialog(null,"¿Estas seguro que quieres salir?\n No has guardado los datos","Confirmar",JOptionPane.DEFAULT_OPTION,JOptionPane.WARNING_MESSAGE,null,ObjButtons,ObjButtons[1]);
         if(PromptResult==JOptionPane.YES_OPTION)
         {
        confirme = false;       
@@ -183,6 +198,13 @@ public class Configuracion extends javax.swing.JFrame {
     private void Salir_ConfiguracionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Salir_ConfiguracionActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_Salir_ConfiguracionActionPerformed
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+     jRadioButton1.setSelected(true);
+      jRadioButton4.setSelected(true);
+      confirme = false;
+   
+    }//GEN-LAST:event_jButton1MouseClicked
 
     /**
      * @param args the command line arguments

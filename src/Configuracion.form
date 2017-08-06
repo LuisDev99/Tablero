@@ -53,8 +53,8 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jRadioButton5" min="-2" max="-2" attributes="0"/>
                           <Component id="jRadioButton4" min="-2" max="-2" attributes="0"/>
+                          <Component id="jRadioButton5" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -166,6 +166,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Poner por defalto"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton1MouseClicked"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
