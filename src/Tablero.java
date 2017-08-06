@@ -351,7 +351,7 @@ public class Tablero extends javax.swing.JFrame {
 
     private void JLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JLabel2MouseClicked
       
-     
+        System.out.println("");
       
     }//GEN-LAST:event_JLabel2MouseClicked
 
