@@ -117,7 +117,7 @@ public class TableroEjemplo extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("jLabel1");
+        jLabel1.setText("sexo oral");
 
         jLabel2.setText("Te piso");
 
