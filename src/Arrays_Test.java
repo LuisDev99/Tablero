@@ -12,10 +12,10 @@ import java.util.ArrayList;
  */
 public class Arrays_Test {
     
-   static ArrayList<String> myArray;
-     public static String jugadores[] = {"luis", "carlos", "michael", "gerardo", "richard", "rafa", "erick", "zidane", "xuxin", "zepeda"};
+    static ArrayList<String> myArray;
+    public static String jugadores[] = {"luis", "carlos", "michael", "gerardo", "richard", "rafa", "erick", "zidane", "xuxin", "zepeda"};
     public static String contras[] = {"tus", "tusn", "tusna", "tusnal", "tusnali", "tusnalit", "tusnalita", "tusnalitas","tusnalotas", "tusnalgas" };    
-public static String ab;
+    public static String ab; //Esta variable guardara al primer usuario que haga login, para que no se pueda ingresar este mismo usuario como el segundo jugador que jugara la partida
     public Arrays_Test() {
         
        
@@ -45,15 +45,15 @@ public static String ab;
 				{
 					
 						
-					if(contras[j].equals(contrra) == true && j == i)//Si encontro pues hace la variable contraseña true
+					if(contras[j].equals(contrra) == true && j == i)//Si la contraseña ingresada coincide con una de las contraseñas y esta en la misma posicion en el arreglo que la del usuario, entonces la contra es correcta
 					{
-						contraseña = true;
-					break;
+						contraseña = true; 
+					        break; //quebrar el loop de las contraseñas
 					}
 				}
 			
 				usuario = true;
-				break;
+				break; //quebrar el loop de los usuarios
 			
 			}
 		
@@ -66,6 +66,7 @@ public static String ab;
 		 return verificador;
 		}
     public Boolean verificar_segundo_jugador(String h){
+        /*Esta funcion lo que hace es ver si la cuenta del segundo jugador esta registrada*/
         boolean usuario = false;
         boolean verificador = false;
     
@@ -76,23 +77,26 @@ public static String ab;
 			
 			if(jugadores[i].equals(h) == true)//Si hay un nombre que coincide con uno del arreglo, entonces entra a este ciclo y recorre las contraseñas
 			{
-        usuario = true;
+                                usuario = true;
 				break;
 			
 			}
                        
                 }
+        
      if(usuario == true)
-                            verificador = true;
+        verificador = true;
                         
                         return verificador;
     }
     
     
    public Boolean verificador_de_segundo_usuario(String j){
+       /*Esta funcion lo que hace es asegurarse que el segundo jugador que jugara, no sea igual al primer usuario logged in
+       */
        String usuario;
        usuario = ab;
-       boolean vo = true;
+       boolean vo = true; 
        
        if(usuario.equals(j))
            vo = false;
