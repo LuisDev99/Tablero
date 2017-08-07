@@ -1,9 +1,4 @@
-
-import java.awt.Color;
 import javax.swing.JOptionPane;
-
-
-
 
 public class Login extends javax.swing.JFrame {
  Menu_Inicial menu_inicial = new Menu_Inicial();
@@ -143,12 +138,12 @@ public class Login extends javax.swing.JFrame {
         /*Lo que hace este evento es llamar una funcion en la clase array test que se llama verificador
         Y como parametros recibe los dos textfields que el usuario ingreso y la funcion verificador
         compara los datos y retorna una respuesta booleana*/
-        String b = jPasswordField1.getText();
-        String d = textField1.getText().toString();
+        String contraseña = jPasswordField1.getText();
+        String usuario = textField1.getText();
 
         Menu_principal menu_principal = new Menu_principal(); //Llama al menu principal
         Arrays_Test verificador = new Arrays_Test(); //Declarar la clase array_test
-        Boolean verifier = verificador.verificador(d, b); //Llamar a la funcion verificador y darle dos parametros que serian el usuario y la contra y lo que retorne se guardar en esta variable
+        Boolean verifier = verificador.verificador(usuario, contraseña); //Llamar a la funcion verificador y darle dos parametros que serian el usuario y la contra y lo que retorne se guardar en esta variable
 
         if(verifier == true){ //Si la contraseña es correcta entonces abre el menu principal
             menu_principal.setVisible(true);
@@ -157,7 +152,6 @@ public class Login extends javax.swing.JFrame {
             textField1.setText("");
             jPasswordField1.setText("");
             JOptionPane.showMessageDialog(this,"Usuario o Contraseña incorrecta");
-
         }
     }//GEN-LAST:event_jButton1MouseClicked
 

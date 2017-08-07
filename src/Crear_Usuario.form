@@ -116,14 +116,8 @@
     <Component class="java.awt.TextField" name="textField1">
     </Component>
     <Component class="java.awt.TextField" name="textField2">
-      <Properties>
-        <Property name="selectionEnd" type="int" value="0"/>
-      </Properties>
     </Component>
     <Component class="java.awt.TextField" name="textField3">
-      <Properties>
-        <Property name="selectionEnd" type="int" value="0"/>
-      </Properties>
     </Component>
   </SubComponents>
 </Form>
