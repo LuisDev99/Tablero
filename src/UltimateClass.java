@@ -22,6 +22,7 @@ public class UltimateClass {
     public static ArrayList<String> printer = new ArrayList<String>();
     public static ArrayList<String> get_user_from_file = new ArrayList<String>();
     public static ArrayList<String> get_pass_from_file = new ArrayList<String>();
+    public static String ab = "";
     
     public static void CrearUser(){
 
@@ -103,7 +104,7 @@ public class UltimateClass {
 			
 			if(getalluser.get(i).equals(user) == true)//Si hay un nombre que coincide con uno del arreglo, entonces entra a este ciclo y recorre las contraseñas
 			{
-                           // ab  = jugadores[i];
+                            ab  = getalluser.get(i);
 				for(int j = 0; j < getallpass.size(); j++)//Recorre el segundo arreglo (contraseñas)
 				{
 					
@@ -236,6 +237,44 @@ public class UltimateClass {
             
             
         }
+            public Boolean verificar_segundo_jugador(String h){
+        /*Esta funcion lo que hace es ver si la cuenta del segundo jugador esta registrada*/
+        boolean usuario = false;
+        boolean verificador = false;
+    
+        for(int i = 0; i < get_user_from_file.size(); i++ ) //Recorre el primer arreglo (jugadores)
+            
+        
+		{
+			
+			if(get_user_from_file.get(i).equals(h) == true)//Si hay un nombre que coincide con uno del arreglo, entonces entra a este ciclo y recorre las contraseñas
+			{
+                                usuario = true;
+				break;
+			
+			}
+                       
+                }
+        
+     if(usuario == true)
+        verificador = true;
+                        
+                        return verificador;
+    }
+             public Boolean verificador_de_segundo_usuario(String j){
+       /*Esta funcion lo que hace es asegurarse que el segundo jugador que jugara, no sea igual al primer usuario logged in
+       */
+       String usuario;
+       usuario = ab;
+       boolean vo = true; 
+       
+       if(usuario.equals(j))
+           vo = false;
+       
+       
+       return vo;
+   
+   }
         
     public static void main(String[] args)
     {

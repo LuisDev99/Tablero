@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
  * @author Eduardo Zepeda
  */
 public class Menu_principal extends javax.swing.JFrame {
+    UltimateClass test = new UltimateClass();
 
     /**
      * Creates new form Inicio_Sesion
@@ -190,7 +191,7 @@ public class Menu_principal extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowClosing
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        Arrays_Test test = new Arrays_Test();
+
         String j = JOptionPane.showInputDialog(null, "Ingrese el segundo usuario:  ");
         if(test.verificador_de_segundo_usuario(j) == true){
         if(test.verificar_segundo_jugador(j) == true){
