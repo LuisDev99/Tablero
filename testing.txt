@@ -2,6 +2,7 @@ luis
 carlos
 michael
 gerardo
+HEy
 richard
 rafa
 erick
@@ -10,3 +11,5 @@ xuxin
 zepeda
 Piso
 TT
+Tu madre
+LKLJ

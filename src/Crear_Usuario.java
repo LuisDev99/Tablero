@@ -5,7 +5,9 @@ import javax.swing.JOptionPane;
  */
 public class Crear_Usuario extends javax.swing.JFrame {
     Arrays_Test array = new Arrays_Test(); //Llamar a la clase array test con el nombre array
-// 
+   UltimateClass ultimate = new UltimateClass();
+   
+  
     /**
      * Creates new form Crear_Usuario
      */
@@ -123,7 +125,7 @@ public class Crear_Usuario extends javax.swing.JFrame {
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         /*Este evento lo que hace es registrar un usuario*/
-        
+        UltimateClass pedo = new UltimateClass();
         String verificar_contraseña = textField3.getText();
         String contraseña = textField2.getText();
         String nombre_usuario = textField1.getText();
@@ -131,7 +133,10 @@ public class Crear_Usuario extends javax.swing.JFrame {
         
         if(textField1.getText().length() >0){ //Si esta condicion se cumple entra a la otra condicion
         if(c == true && contraseña.length() >0 && verificar_contraseña.length() >0){ //Si las contraseñas coinciden y los textfields no estan en blanco crea al nuevo usuario
+           
+          
             JOptionPane.showMessageDialog(this,"Usuario creado! A jugar!");
+          
             textField1.setText("");
             textField2.setText("");
             textField3.setText(""); 

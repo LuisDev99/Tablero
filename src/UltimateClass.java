@@ -1,4 +1,3 @@
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -20,20 +19,21 @@ import javax.swing.JOptionPane;
  * @author dell
  */
 public class UltimateClass {
+   
     public static ArrayList<String> printer = new ArrayList<String>();
-    public static ArrayList guardador = new ArrayList();
+    public static ArrayList<String> guardador = new ArrayList<String>();
     public static void Crear(){
 		
 		
 		File file = new File("testing.txt");
-	ArrayList list = new ArrayList();
-	String jugadores[] = {"luis", "carlos", "michael", "gerardo", "richard", "rafa", "erick", "zidane", "xuxin", "zepeda", "Piso", "TT"};
-	
+	ArrayList<String> list = new ArrayList<String>();
+	String jugadores[] = {"luis", "carlos", "michael", "gerardo","HEy", "richard", "rafa", "erick", "zidane", "xuxin", "zepeda", "Piso", "TT", "Tu madre", "LKLJ"};
 	for(int i = 0; i <jugadores.length; i++){
 		list.add(jugadores[i]);
+               
 
 	}
-	
+   	 
 	try{
 		FileWriter fw = new FileWriter(file);
 		Writer output = new BufferedWriter(fw);
@@ -51,15 +51,23 @@ public class UltimateClass {
 	}
 	
 	System.out.println("Hi xd");
-	
+	getfile();
 	
 	}
+    public void tepisan(String s){
+        
+        System.out.println("");
+        
+        
+        
+        
+    }
 	
 	public static  void getfile(){
 		
 		String filename = "testing.txt";
 		String line;
-		ArrayList list = new ArrayList();
+		ArrayList<String> list = new ArrayList<String>();
 		
 		try{
 			BufferedReader input = new BufferedReader (new FileReader (filename));
@@ -87,6 +95,7 @@ public class UltimateClass {
 	}
     public static void main(String[] args)
     {
+        //guardador.add("Te Piso");
         getfile();
         Crear();
         printer = guardador;
@@ -102,7 +111,7 @@ public class UltimateClass {
         
         
     
-    }    
+    }
     
     
 }
