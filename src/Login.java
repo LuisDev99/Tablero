@@ -139,6 +139,7 @@ public class Login extends javax.swing.JFrame {
         /*Lo que hace este evento es llamar una funcion en la clase array test que se llama verificador
         Y como parametros recibe los dos textfields que el usuario ingreso y la funcion verificador
         compara los datos y retorna una respuesta booleana*/
+        
         String contraseña = jPasswordField1.getText();
         String usuario = textField1.getText();
 

@@ -31,7 +31,7 @@ public class UltimateClass {
 
 	File file = new File("testing.txt");
 	ArrayList<String> list = new ArrayList<String>();
-	String jugadores[] = {"luis", "carlos", "michael", "gerardo", "richard", "rafa", "erick", "zidane", "xuxin", "zepeda", "sexo"}; //10
+	String jugadores[] = {"luis", "carlos", "michael", "gerardo", "richard", "rafa", "erick", "zidane", "xuxin", "zepeda"}; //10
 
 	for(int i = 0; i <jugadores.length; i++){
 		list.add(jugadores[i]);
@@ -90,8 +90,8 @@ public class UltimateClass {
 	}
     public  Boolean tepisan(String user, String pass){
         getfile();
-        //Crear();
-        //CrearPassword();
+        Crear();
+        CrearPassword();
         get_password();
         ArrayList <String> getalluser = new ArrayList<String>();
         ArrayList <String> getallpass = new ArrayList<String>();
