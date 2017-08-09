@@ -3,7 +3,9 @@ import javax.swing.JOptionPane;
 public class Login extends javax.swing.JFrame {
  Menu_Inicial menu_inicial = new Menu_Inicial();
     Crear_Usuario crear_usuario = new Crear_Usuario();
-    UltimateClass piso = new UltimateClass();
+    UltimateClass verificador1 = new UltimateClass();
+    Menu_principal menu_principal = new Menu_principal(); 
+
  
     /**
      * Creates new form Login
@@ -143,10 +145,8 @@ public class Login extends javax.swing.JFrame {
         String contraseña = jPasswordField1.getText();
         String usuario = textField1.getText();
 
-        Menu_principal menu_principal = new Menu_principal(); //Llama al menu principal
-        Arrays_Test verificador = new Arrays_Test(); //Declarar la clase array_test
         //Boolean verifier = verificador.verificador(usuario, contraseña); //Llamar a la funcion verificador y darle dos parametros que serian el usuario y la contra y lo que retorne se guardar en esta variable
-        Boolean verifier = piso.tepisan(usuario, contraseña);
+        Boolean verifier = verificador1.verificar_cuenta(usuario, contraseña);//Llamar a la funcion verificador y darle dos parametros que serian el usuario y la contra y lo que retorne se guardar en esta variable
         if(verifier == true){ //Si la contraseña es correcta entonces abre el menu principal
             menu_principal.setVisible(true);
             this.dispose();

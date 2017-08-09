@@ -136,7 +136,8 @@ public class Crear_Usuario extends javax.swing.JFrame {
            
           
             JOptionPane.showMessageDialog(this,"Usuario creado! A jugar!");
-          
+            ultimate.CrearPassword(contraseña);
+          ultimate.CrearJugador(nombre_usuario);
             textField1.setText("");
             textField2.setText("");
             textField3.setText(""); 

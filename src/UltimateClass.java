@@ -19,15 +19,11 @@ import javax.swing.JOptionPane;
  * @author dell
  */
 public class UltimateClass {
-    public static String sexo = "";
-   
     public static ArrayList<String> printer = new ArrayList<String>();
     public static ArrayList<String> get_user_from_file = new ArrayList<String>();
     public static ArrayList<String> get_pass_from_file = new ArrayList<String>();
-    String jugadores[] = {"luis", "carlos", "michael", "gerardo","HEy", "richard", "rafa", "erick", "zidane", "xuxin", "zepeda", "Piso", "TT", "Tu madre", "LKLJ"};
-   
     
-    public static void Crear(){
+    public static void CrearUser(){
 
 	File file = new File("testing.txt");
 	ArrayList<String> list = new ArrayList<String>();
@@ -43,7 +39,7 @@ public class UltimateClass {
 		int sz = list.size();
 		
 		for(int i = 0; i<sz; i++){
-			output.write(list.get(i).toString());
+			output.write(list.get(i));
 			output.write("\n");
 		}
 		output.close();
@@ -53,7 +49,6 @@ public class UltimateClass {
 		
 	}
 	
-	System.out.println("Hi xd");
 	getfile();
 	
 	}
@@ -84,41 +79,19 @@ public class UltimateClass {
 		
 	}
 	
-	System.out.println("Hi xd");
-	getfile();
+	get_password();
 	
 	}
-    public  Boolean tepisan(String user, String pass){
+    public  Boolean verificar_cuenta(String user, String pass){
         getfile();
-        Crear();
-        CrearPassword();
+        //CrearUser();
+        //CrearPassword();
         get_password();
         ArrayList <String> getalluser = new ArrayList<String>();
         ArrayList <String> getallpass = new ArrayList<String>();
         getalluser.addAll(get_user_from_file);
         getallpass.addAll(get_pass_from_file);
         
-        
-        
-        /*  boolean usuario = false;
-        boolean verificador = false;
-    
-        for(int i = 0; i < getalluser.size(); i++ ) //Recorre el primer arreglo (jugadores)
-            
-        
-		{
-			
-			if(getalluser.get(i).equals(s) == true)//Si hay un nombre que coincide con uno del arreglo, entonces entra a este ciclo y recorre las contraseñas
-			{
-                                usuario = true;
-				break;
-			
-			}
-                       
-                }
-        
-     if(usuario == true)
-        verificador = true;*/
          Boolean verificador = false; 
         
         		
@@ -220,6 +193,50 @@ public class UltimateClass {
                
 		
 	}
+        
+        public void CrearJugador(String username){
+  String filename = "testing.txt";
+		String line;
+		ArrayList<String> list = new ArrayList<String>();
+		
+		try{
+			Writer output;
+            output = new BufferedWriter(new FileWriter("testing.txt", true));
+		output.write(username);
+                output.write("\n");
+			output.close();
+			
+		}catch(Exception e){
+			System.out.println(e);
+                }
+            
+            
+            
+            
+            
+        }
+        public void CrearPassword(String password){
+  String filename = "testing.txt";
+		String line;
+		ArrayList<String> list = new ArrayList<String>();
+		
+		try{
+			Writer output;
+            output = new BufferedWriter(new FileWriter("contras.txt", true));
+		output.write(password);
+                output.write("\n");
+			output.close();
+			
+		}catch(Exception e){
+			System.out.println(e);
+                }
+            
+            
+            
+            
+            
+        }
+        
     public static void main(String[] args)
     {
         //guardador.add("Te Piso");
