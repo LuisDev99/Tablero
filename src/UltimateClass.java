@@ -19,6 +19,8 @@ import javax.swing.JOptionPane;
  * @author dell
  */
 public class UltimateClass {
+    public static int posicion_del_usuario = 0;
+    public static int posicion_de_la_contra = 0;
     public static ArrayList<String> printer = new ArrayList<String>();
     public static ArrayList<String> get_user_from_file = new ArrayList<String>();
     public static ArrayList<String> get_pass_from_file = new ArrayList<String>();
@@ -66,8 +68,8 @@ public class UltimateClass {
    	 
 	try{
 		FileWriter fw = new FileWriter(file);
-		Writer output = new BufferedWriter(fw);
-		int sz = list.size();
+		Writer output = new BufferedWriter(fw);                
+                int sz = list.size();
 		
 		for(int i = 0; i<sz; i++){
 			output.write(list.get(i).toString());
@@ -104,13 +106,15 @@ public class UltimateClass {
 			
 			if(getalluser.get(i).equals(user) == true)//Si hay un nombre que coincide con uno del arreglo, entonces entra a este ciclo y recorre las contraseñas
 			{
+                            posicion_del_usuario = i;
                             ab  = getalluser.get(i);
 				for(int j = 0; j < getallpass.size(); j++)//Recorre el segundo arreglo (contraseñas)
 				{
 					
-						
+					
 					if(getallpass.get(j).equals(pass) == true && j == i)//Si la contraseña ingresada coincide con una de las contraseñas y esta en la misma posicion en el arreglo que la del usuario, entonces la contra es correcta
 					{
+                                                posicion_de_la_contra = j;
 						contraseña = true; 
 					        break; //quebrar el loop de las contraseñas
 					}
@@ -175,15 +179,13 @@ public class UltimateClass {
 			}
 			
 			while((line = input.readLine()) != null){
-			list.add(line);
-			
-			
+			list.add(line);	
 			}
+                        
 			input.close();
 			
 		}catch(Exception e){
-			System.out.println(e);
-			
+			System.out.println(e);	
 		}
 		int size = list.size();
 		for(int i = 0; i<size; i++){
@@ -205,6 +207,7 @@ public class UltimateClass {
             output = new BufferedWriter(new FileWriter("testing.txt", true));
 		output.write(username);
                 output.write("\n");
+                
 			output.close();
 			
 		}catch(Exception e){
@@ -220,14 +223,15 @@ public class UltimateClass {
   String filename = "testing.txt";
 		String line;
 		ArrayList<String> list = new ArrayList<String>();
+                
 		
 		try{
 			Writer output;
             output = new BufferedWriter(new FileWriter("contras.txt", true));
 		output.write(password);
                 output.write("\n");
-			output.close();
-			
+	        output.close();
+		
 		}catch(Exception e){
 			System.out.println(e);
                 }
@@ -275,6 +279,12 @@ public class UltimateClass {
        return vo;
    
    }
+             
+             
+public void Eliminar_Usuario(){
+
+                                                   
+}
         
     public static void main(String[] args)
     {
