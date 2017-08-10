@@ -4,7 +4,7 @@ import javax.swing.JOptionPane;
 
 public class Mi_Perfil extends javax.swing.JFrame {
 
-   
+    Menu_Inicial menu = new Menu_Inicial();
     public Mi_Perfil() {
         initComponents();
     }
@@ -78,6 +78,11 @@ public class Mi_Perfil extends javax.swing.JFrame {
 
         jButton2.setForeground(new java.awt.Color(255, 0, 0));
         jButton2.setText("Eliminar Cuenta");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 250, -1, -1));
 
         jButton3.setForeground(new java.awt.Color(255, 0, 0));
@@ -110,6 +115,13 @@ public class Mi_Perfil extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         JOptionPane.showInputDialog(this, "Ingrese la nueva contraseña: ");
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+       UltimateClass borrar_user = new UltimateClass();
+       borrar_user.Eliminar_Usuario();
+       menu.setVisible(true);
+       this.dispose();
+    }//GEN-LAST:event_jButton2MouseClicked
 
    
     public static void main(String args[]) {

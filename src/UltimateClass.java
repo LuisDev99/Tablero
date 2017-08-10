@@ -23,6 +23,7 @@ public class UltimateClass {
     public static int posicion_de_la_contra = 0;
     public static ArrayList<String> printer = new ArrayList<String>();
     public static ArrayList<String> get_user_from_file = new ArrayList<String>();
+    public static ArrayList<String> limpiador = new ArrayList<String>();
     public static ArrayList<String> get_pass_from_file = new ArrayList<String>();
     public static String ab = "";
     
@@ -281,13 +282,89 @@ public class UltimateClass {
    }
              
              
-public void Eliminar_Usuario(){
-
-                                                   
+public void Eliminar_Usuario()
+{
+    	File file = new File("testing.txt");
+	File file2 = new File("contras.txt");
+	
+	try{
+		FileWriter fw = new FileWriter(file);
+		Writer output = new BufferedWriter(fw);
+		
+		
+		for(int i = 0; i<get_user_from_file.size(); i++){
+			output.write(limpiador.get(i));
+			output.write("\n");
+		}
+		output.close();
+		
+	}catch(Exception e){
+		JOptionPane.showMessageDialog(null, "Cuenta eliminida. ");
+		
+	}
+        get_user_from_file.remove(posicion_del_usuario);
+	
+	
+        	try{
+		FileWriter fw = new FileWriter(file);
+		Writer output = new BufferedWriter(fw);
+		
+		
+		for(int i = 0; i<get_user_from_file.size(); i++){
+			output.write(get_user_from_file.get(i));
+			output.write("\n");
+		}
+		output.close();
+		
+	}catch(Exception e){
+		JOptionPane.showMessageDialog(null, "Cuenta eliminida. ");
+		
+        }
+	
+	
+        try{
+		FileWriter fw1 = new FileWriter(file2);
+		Writer output = new BufferedWriter(fw1);
+		
+		
+		for(int i = 0; i<get_pass_from_file.size(); i++){
+			output.write(limpiador.get(i));
+			output.write("\n");
+		}
+		output.close();
+		
+	}catch(Exception e){
+		//JOptionPane.showMessageDialog(null, "Cuenta eliminida. ");
+		
+	}
+    get_pass_from_file.remove(posicion_de_la_contra);
+        
+        try{
+		FileWriter fw1 = new FileWriter(file2);
+		Writer output = new BufferedWriter(fw1);
+		
+		
+		for(int i = 0; i<get_pass_from_file.size(); i++)
+                {
+			output.write(get_pass_from_file.get(i));
+			output.write("\n");
+		}
+		output.close();
+		
+	}catch(Exception e){
+		//JOptionPane.showMessageDialog(null, "Cuenta eliminida. ");
+		
+	}
+	
+	getfile();
+        
 }
         
     public static void main(String[] args)
     {
+        
+       //CrearUser();
+       //CrearPassword(); 
         //guardador.add("Te Piso");
    
         //printer = guardador;
