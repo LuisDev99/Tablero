@@ -3,7 +3,7 @@ import javax.swing.JOptionPane;
 
 
 public class Mi_Perfil extends javax.swing.JFrame {
-
+    UltimateClass ultimate = new UltimateClass();
     Menu_Inicial menu = new Menu_Inicial();
     public Mi_Perfil() {
         initComponents();
@@ -87,6 +87,11 @@ public class Mi_Perfil extends javax.swing.JFrame {
 
         jButton3.setForeground(new java.awt.Color(255, 0, 0));
         jButton3.setText("Cambiar Contraseña");
+        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton3MouseClicked(evt);
+            }
+        });
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -113,15 +118,25 @@ public class Mi_Perfil extends javax.swing.JFrame {
     }//GEN-LAST:event_Salir_Perfil
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        JOptionPane.showInputDialog(this, "Ingrese la nueva contraseña: ");
+      
+        /*String q =  JOptionPane.showInputDialog(null, "Ingrese la nueva contraseña: ");
+       ultimate.Cambiar_Password(q);
+       JOptionPane.showMessageDialog(null,"Contrasena cambiada");*/
+       
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-       UltimateClass borrar_user = new UltimateClass();
-       borrar_user.Eliminar_Usuario();
+     
+       ultimate.Eliminar_Usuario();
        menu.setVisible(true);
        this.dispose();
     }//GEN-LAST:event_jButton2MouseClicked
+
+    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+      String q =  JOptionPane.showInputDialog(null, "Ingrese la nueva contraseña: ");
+       ultimate.Cambiar_Password(q);
+       JOptionPane.showMessageDialog(null,"Contrasena cambiada");
+    }//GEN-LAST:event_jButton3MouseClicked
 
    
     public static void main(String args[]) {

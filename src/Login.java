@@ -145,8 +145,8 @@ public class Login extends javax.swing.JFrame {
         String contraseña = jPasswordField1.getText();
         String usuario = textField1.getText();
 
-        //Boolean verifier = verificador.verificador(usuario, contraseña); //Llamar a la funcion verificador y darle dos parametros que serian el usuario y la contra y lo que retorne se guardar en esta variable
-        Boolean verifier = verificador1.verificar_cuenta(usuario, contraseña);//Llamar a la funcion verificador y darle dos parametros que serian el usuario y la contra y lo que retorne se guardar en esta variable
+        //Boolean verifier = verificador1.verificador(usuario, contraseña); //Llamar a la funcion verificador y darle dos parametros que serian el usuario y la contra y lo que retorne se guardar en esta variable
+       Boolean verifier = verificador1.verificar_cuenta(usuario, contraseña);//Llamar a la funcion verificador y darle dos parametros que serian el usuario y la contra y lo que retorne se guardar en esta variable
         if(verifier == true){ //Si la contraseña es correcta entonces abre el menu principal
             menu_principal.setVisible(true);
             this.dispose();
