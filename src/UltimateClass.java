@@ -364,11 +364,12 @@ public void Cambiar_Password(String q)
 {
     
     File file2 = new File("contras.txt");
-    
+   
     try{
-		FileWriter fw1 = new FileWriter(file2);
-		Writer output = new BufferedWriter(fw1);
 		
+		 FileWriter fw1 = new FileWriter(file2);
+		Writer output = new BufferedWriter(fw1);
+    
 		
 		for(int i = 0; i<get_pass_from_file.size(); i++){
 			output.write(limpiador.get(i));
@@ -383,9 +384,10 @@ public void Cambiar_Password(String q)
     
     get_pass_from_file.set(posicion_de_la_contra, q);
     try{
-		FileWriter fw1 = new FileWriter(file2);
-		Writer output = new BufferedWriter(fw1);
 		
+		 FileWriter fw1 = new FileWriter(file2);
+		Writer output = new BufferedWriter(fw1);
+    
 		
 		for(int i = 0; i<get_pass_from_file.size(); i++)
                 {
