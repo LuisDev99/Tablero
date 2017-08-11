@@ -379,7 +379,7 @@ public void Cambiar_Password(String q)
 		
 	}catch(Exception e){
 		//JOptionPane.showMessageDialog(null, "Cuenta eliminida. ");
-		
+		//
 	}
     
     get_pass_from_file.set(posicion_de_la_contra, q);
