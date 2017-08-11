@@ -2,7 +2,7 @@
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 /**
- *g
+ *gg
  * @author Eduardo Zepeda
  */
 public class Configuracion extends javax.swing.JFrame {

@@ -399,6 +399,8 @@ public void Cambiar_Password(String q)
 		
 	}
     
+    getfile();
+    
 }
     public static void main(String[] args)
     {
