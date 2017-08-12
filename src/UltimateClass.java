@@ -411,7 +411,7 @@ public void Cambiar_Password(String q)
 		//JOptionPane.showMessageDialog(null, "Cuenta eliminida. ");
 		
 	}
-    
+    get_pass_from_file.clear();
     getfile();
     
 }
