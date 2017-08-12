@@ -25,6 +25,8 @@ public class UltimateClass {
     public static ArrayList<String> get_user_from_file = new ArrayList<String>();
     public static ArrayList<String> limpiador = new ArrayList<String>();
     public static ArrayList<String> get_pass_from_file = new ArrayList<String>();
+    public static ArrayList<String> temp = new ArrayList<>();
+     public static ArrayList<String> temp1 = new ArrayList<>();
     public static String ab = "";
     
     public static void CrearUser(){
@@ -284,8 +286,13 @@ public class UltimateClass {
              
 public void Eliminar_Usuario()
 {
+    temp.clear();
+    temp1.clear();
     	File file = new File("testing.txt");
 	File file2 = new File("contras.txt");
+        
+        temp.addAll(get_user_from_file);
+        temp1.addAll(get_pass_from_file);        
 	
 	try{
 		FileWriter fw = new FileWriter(file);
@@ -302,25 +309,26 @@ public void Eliminar_Usuario()
 		JOptionPane.showMessageDialog(null, "Cuenta eliminida. ");
 		
 	}
-        get_user_from_file.remove(posicion_del_usuario);
+        temp.remove(posicion_del_usuario);
 	
 	
         	try{
-		FileWriter fw = new FileWriter(file);
-		Writer output = new BufferedWriter(fw);
-		
-		
-		for(int i = 0; i<get_user_from_file.size(); i++){
-			output.write(get_user_from_file.get(i));
-			output.write("\n");
+                        FileWriter fw = new FileWriter(file);
+                        Writer output = new BufferedWriter(fw);
+
+
+                        for(int i = 0; i<temp.size(); i++){
+                                output.write(temp.get(i));
+                                output.write("\n");
 		}
 		output.close();
 		
-	}catch(Exception e){
-		JOptionPane.showMessageDialog(null, "Cuenta eliminida. ");
+                    }catch(Exception e){
+                            JOptionPane.showMessageDialog(null, "Cuenta eliminida. ");
 		
         }
-	
+	temp.clear();
+        
 	
         try{
 		FileWriter fw1 = new FileWriter(file2);
@@ -337,16 +345,16 @@ public void Eliminar_Usuario()
 		//JOptionPane.showMessageDialog(null, "Cuenta eliminida. ");
 		
 	}
-    get_pass_from_file.remove(posicion_de_la_contra);
+    temp1.remove(posicion_de_la_contra);
         
         try{
 		FileWriter fw1 = new FileWriter(file2);
 		Writer output = new BufferedWriter(fw1);
 		
 		
-		for(int i = 0; i<get_pass_from_file.size(); i++)
+		for(int i = 0; i<temp1.size(); i++)
                 {
-			output.write(get_pass_from_file.get(i));
+			output.write(temp1.get(i));
 			output.write("\n");
 		}
 		output.close();
@@ -355,8 +363,11 @@ public void Eliminar_Usuario()
 		//JOptionPane.showMessageDialog(null, "Cuenta eliminida. ");
 		
 	}
-	
-	getfile();
+        get_user_from_file.clear(); //Lo que hace es limpiar los datos que estan en este arreglo porque si no se sobreescribira
+        get_pass_from_file.clear();
+        temp1.clear();
+        //get_user_from_file.removeAll(get_user_from_file);
+	//getfile();
         
 }
        
