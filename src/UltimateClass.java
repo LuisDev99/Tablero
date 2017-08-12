@@ -286,6 +286,10 @@ public class UltimateClass {
              
 public void Eliminar_Usuario()
 {
+    get_user_from_file.clear();
+    get_pass_from_file.clear();
+    getfile();
+    get_password();
     temp.clear();
     temp1.clear();
     	File file = new File("testing.txt");

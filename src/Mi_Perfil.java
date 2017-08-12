@@ -143,7 +143,7 @@ public class Mi_Perfil extends javax.swing.JFrame {
      
         String q =  JOptionPane.showInputDialog(null, "Ingrese la nueva contraseña: ");
        ultimate.Cambiar_Password(q);
-       JOptionPane.showMessageDialog(null,"Contrasena cambiada");
+       JOptionPane.showMessageDialog(null,"Contrasena cambiada, se le redigirira al login");
        jButton2.setEnabled(false);
        jButton3.setEnabled(false);
        login.setVisible(true);
