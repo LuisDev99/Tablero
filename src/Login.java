@@ -5,8 +5,6 @@ public class Login extends javax.swing.JFrame {
     Crear_Usuario crear_usuario = new Crear_Usuario();
     UltimateClass verificador1 = new UltimateClass();
     Menu_principal menu_principal = new Menu_principal(); 
-
- 
     /**
      * Creates new form Login
      */
@@ -150,6 +148,7 @@ public class Login extends javax.swing.JFrame {
         if(verifier == true){ //Si la contraseña es correcta entonces abre el menu principal
             menu_principal.setVisible(true);
             this.dispose();
+            
         }else{ //Si la contraseña es incorrecta entonces le avisa al usuario en un msgbox y pone en blanco los dos textfields
             textField1.setText("");
             jPasswordField1.setText("");

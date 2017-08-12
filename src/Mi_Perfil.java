@@ -5,8 +5,11 @@ import javax.swing.JOptionPane;
 public class Mi_Perfil extends javax.swing.JFrame {
     UltimateClass ultimate = new UltimateClass();
     Menu_Inicial menu = new Menu_Inicial();
+    Login login = new Login();
+ 
     public Mi_Perfil() {
         initComponents();
+       
     }
 
     
@@ -40,13 +43,13 @@ public class Mi_Perfil extends javax.swing.JFrame {
         jButton1.setBackground(new java.awt.Color(0, 0, 0));
         jButton1.setForeground(new java.awt.Color(204, 0, 51));
         jButton1.setText("Salir");
-        jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        jButton1.setBorder(null);
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Salir_Perfil(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 200, 80, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 200, 80, 30));
 
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("jLabel2");
@@ -115,6 +118,7 @@ public class Mi_Perfil extends javax.swing.JFrame {
        Menu_principal menu_principal = new Menu_principal(); 
        menu_principal.setVisible(true);
         this.dispose(); 
+       
     }//GEN-LAST:event_Salir_Perfil
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -126,16 +130,25 @@ public class Mi_Perfil extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
-     
+   
        ultimate.Eliminar_Usuario();
        menu.setVisible(true);
        this.dispose();
+       jButton2.setEnabled(false);
+       jButton3.setEnabled(false);
+       
     }//GEN-LAST:event_jButton2MouseClicked
 
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
-      String q =  JOptionPane.showInputDialog(null, "Ingrese la nueva contraseña: ");
+     
+        String q =  JOptionPane.showInputDialog(null, "Ingrese la nueva contraseña: ");
        ultimate.Cambiar_Password(q);
        JOptionPane.showMessageDialog(null,"Contrasena cambiada");
+       jButton2.setEnabled(false);
+       jButton3.setEnabled(false);
+       login.setVisible(true);
+       this.dispose();
+       
     }//GEN-LAST:event_jButton3MouseClicked
 
    
