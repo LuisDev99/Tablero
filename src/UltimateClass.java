@@ -427,7 +427,7 @@ public void Cambiar_Password(String q)
           printer.add(guardador.get(i)); 
             
         }*/
-        
+        //
        /* for(String g: printer){
             System.out.println(g);
         }*/
