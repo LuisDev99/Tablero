@@ -1,4 +1,5 @@
 tus
+tusn
 tusna
 tusnal
 tusnali
