@@ -57,6 +57,11 @@ public class Menu_principal extends javax.swing.JFrame {
                 jButton1MouseClicked(evt);
             }
         });
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         Configuracion.setText("Configuracion");
         Configuracion.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -193,6 +198,7 @@ public class Menu_principal extends javax.swing.JFrame {
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
 
         String j = JOptionPane.showInputDialog(null, "Ingrese el segundo usuario:  ");
+        if(j.length() >0){
         if(test.verificador_de_segundo_usuario(j) == true){
         if(test.verificar_segundo_jugador(j) == true){
         
@@ -205,7 +211,14 @@ public class Menu_principal extends javax.swing.JFrame {
         }else{
             JOptionPane.showMessageDialog(null, "Este usuario es el usuario principal, porfavor ingrese un usuario diferente");
         }
+        }else{
+            JOptionPane.showMessageDialog(this, "No ingreso ningun usuario, vuelva a intentarlo!");
+        }
     }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

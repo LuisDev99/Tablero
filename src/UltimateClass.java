@@ -267,8 +267,8 @@ public class UltimateClass {
                         
     return verificador;
     }
-            
-       public Boolean verificador_de_segundo_usuario(String j){
+           
+    public Boolean verificador_de_segundo_usuario(String j){
        /*Esta funcion lo que hace es asegurarse que el segundo jugador que jugara, no sea igual al primer usuario logged in
         y lo que esta recibiendo de parametro es el nombre del usuario del segundo jugador*/
        
@@ -422,9 +422,9 @@ public void Cambiar_Password(String q)
 }
     public static void main(String[] args)
     {
-       // Cambiar_Password("tepiso");
-       //CrearUser();
-       //CrearPassword(); 
+    // Cambiar_Password("tepiso");
+    //CrearUser();
+    //CrearPassword(); 
         //guardador.add("Te Piso");
    
         //printer = guardador;

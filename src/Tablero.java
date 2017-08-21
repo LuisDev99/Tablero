@@ -1,5 +1,6 @@
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 
 
@@ -112,6 +113,11 @@ public class Tablero extends javax.swing.JFrame {
         jLabel1.setBackground(new java.awt.Color(153, 0, 0));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setOpaque(true);
+        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel1MouseClicked(evt);
+            }
+        });
 
         jLabel4.setBackground(new java.awt.Color(0, 0, 0));
         jLabel4.setOpaque(true);
@@ -371,6 +377,12 @@ public class Tablero extends javax.swing.JFrame {
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
       
     }//GEN-LAST:event_formWindowClosing
+
+    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+        UltimateTablero tb = new UltimateTablero();
+        int i[][] = tb.verPosiciones(1, 12);
+        JOptionPane.showMessageDialog(this, i[0][1] );
+    }//GEN-LAST:event_jLabel1MouseClicked
     
     /**
      * @param args the command line arguments

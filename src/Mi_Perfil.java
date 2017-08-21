@@ -142,13 +142,16 @@ public class Mi_Perfil extends javax.swing.JFrame {
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
      
         String q =  JOptionPane.showInputDialog(null, "Ingrese la nueva contraseña: ");
+        if(q.length()>0){
        ultimate.Cambiar_Password(q);
        JOptionPane.showMessageDialog(null,"Contrasena cambiada, se le redigirira al login");
        jButton2.setEnabled(false);
        jButton3.setEnabled(false);
        login.setVisible(true);
        this.dispose();
-       
+        }else{
+           JOptionPane.showMessageDialog(menu, "Ojo! Ingrese una contraseña valida, sin espacio en blanco!");
+        }  
     }//GEN-LAST:event_jButton3MouseClicked
 
    
