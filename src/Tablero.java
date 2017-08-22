@@ -1,6 +1,11 @@
 
+import java.awt.Color;
+import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.border.Border;
+import javax.swing.border.LineBorder;
 
 
 
@@ -15,7 +20,13 @@ import javax.swing.JOptionPane;
  * @author dell
  */
 public class Tablero extends javax.swing.JFrame {
+   UltimateTablero tb = new UltimateTablero();
    public static JLabel[][] arreglo_labels = new JLabel[6][6];
+   Boolean poner_fantasmasj1 = true;
+    Boolean poner_fantasmasj2 = true;
+   public int fantasmas_j1 = 8;
+   public int fantasmas_j2 = 8;
+    ImageIcon icon = new ImageIcon(getClass().getResource("fantasmas-halloween-gifs-156x130[4].gif"));
    
    public static boolean v = false;
     
@@ -97,6 +108,9 @@ public class Tablero extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
             }
@@ -141,6 +155,11 @@ public class Tablero extends javax.swing.JFrame {
 
         jLabel7.setBackground(new java.awt.Color(0, 0, 0));
         jLabel7.setOpaque(true);
+        jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel7MouseClicked(evt);
+            }
+        });
 
         jLabel10.setBackground(new java.awt.Color(153, 0, 0));
         jLabel10.setOpaque(true);
@@ -366,12 +385,18 @@ public class Tablero extends javax.swing.JFrame {
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
       
-        System.out.println("");
+        JOptionPane.showMessageDialog(this, "Hey");
       
     }//GEN-LAST:event_jLabel2MouseClicked
 
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
-       
+       posicionamiento_de_labels_en_arreglo();
+        boolean pos = tb.ubicar_fantasma(1,1);
+        if(pos=true)
+           arreglo_labels[1][1].setIcon(icon);
+        else
+            JOptionPane.showMessageDialog(this, "No puede hacer esa mierda! Puta mano guirro pendejo");
+        
     }//GEN-LAST:event_jLabel8MouseClicked
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
@@ -379,10 +404,44 @@ public class Tablero extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowClosing
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
-        UltimateTablero tb = new UltimateTablero();
+       
         int i[][] = tb.verPosiciones(1, 12);
-        JOptionPane.showMessageDialog(this, i[0][1] );
+        JOptionPane.showMessageDialog(this, i[0][2]);
+        posicionamiento_de_labels_en_arreglo();
+        Prueba();
+        
+        
     }//GEN-LAST:event_jLabel1MouseClicked
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+
+    }//GEN-LAST:event_formWindowActivated
+
+    private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
+       if(fantasmas_j1>0)
+       {
+        posicionamiento_de_labels_en_arreglo();
+        boolean pos = tb.ubicar_fantasma(1,0);
+        if(pos==true){
+           arreglo_labels[1][1].setIcon(icon);
+           JOptionPane.showMessageDialog(this, pos);
+            
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "No puede hacer esa mierda! Puta mano guirro pendejo");
+        }
+       fantasmas_j1--;
+       }
+      else
+       {
+           JOptionPane.showMessageDialog(this, "No hdp! ya no podes meter mas fantamas, que hdp mas imbecil");
+           /*
+           aquel pijaso de codigo de mover fantasma
+           */ 
+       }
+       
+       
+    }//GEN-LAST:event_jLabel7MouseClicked
     
     /**
      * @param args the command line arguments
@@ -416,8 +475,10 @@ public class Tablero extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Tablero().setVisible(true);
+               
             }
         });
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -467,48 +528,61 @@ public class Tablero extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     // End of variables declaration//GEN-END:variables
 public void posicionamiento_de_labels_en_arreglo(){
-  arreglo_labels[0][0] = jLabel1;
-  arreglo_labels[0][1] = jLabel2;
-  arreglo_labels[0][2] = jLabel3;
-  arreglo_labels[0][3] = jLabel4;
-  arreglo_labels[0][4] = jLabel5;
-  arreglo_labels[0][5] = jLabel6; 
-  
-  arreglo_labels[1][0] = jLabel7;
-  arreglo_labels[1][1] = jLabel8;
-  arreglo_labels[1][2] = jLabel9;
-  arreglo_labels[1][3] = jLabel10; 
-  arreglo_labels[1][4] = jLabel11;
-  arreglo_labels[1][5] = jLabel12;
-  
-  arreglo_labels[2][0] = jLabel13;
-  arreglo_labels[2][1] = jLabel14; 
-  arreglo_labels[2][2] = jLabel15;
-  arreglo_labels[2][3] = jLabel16;
-  arreglo_labels[2][4] = jLabel17;
-  arreglo_labels[2][5] = jLabel18;
-   
-  arreglo_labels[3][0] = jLabel19;
-  arreglo_labels[3][1] = jLabel20;
-  arreglo_labels[3][2] = jLabel21;
-  arreglo_labels[3][3] = jLabel22;
-  arreglo_labels[3][4] = jLabel23;
-  arreglo_labels[3][5] = jLabel24;
-  
-  arreglo_labels[4][0] = jLabel25;
-  arreglo_labels[4][1] = jLabel26;
-  arreglo_labels[4][2] = jLabel27;
-  arreglo_labels[4][3] = jLabel28;
-  arreglo_labels[4][4] = jLabel29;
-  arreglo_labels[4][5] = jLabel30;
-  
-  arreglo_labels[5][0] = jLabel31;
-  arreglo_labels[5][1] = jLabel32;
-  arreglo_labels[5][2] = jLabel33;
-  arreglo_labels[5][3] = jLabel34;
-  arreglo_labels[5][4] = jLabel35;
-  arreglo_labels[5][5] = jLabel36;
+    arreglo_labels[0][0] = jLabel1;
+    arreglo_labels[0][1] = jLabel2;
+    arreglo_labels[0][2] = jLabel3;
+    arreglo_labels[0][3] = jLabel4;
+    arreglo_labels[0][4] = jLabel5;
+    arreglo_labels[0][5] = jLabel6; 
+
+    arreglo_labels[1][0] = jLabel7;
+    arreglo_labels[1][1] = jLabel8;
+    arreglo_labels[1][2] = jLabel9;
+    arreglo_labels[1][3] = jLabel10; 
+    arreglo_labels[1][4] = jLabel11;
+    arreglo_labels[1][5] = jLabel12;
+
+    arreglo_labels[2][0] = jLabel13;
+    arreglo_labels[2][1] = jLabel14; 
+    arreglo_labels[2][2] = jLabel15;
+    arreglo_labels[2][3] = jLabel16;
+    arreglo_labels[2][4] = jLabel17;
+    arreglo_labels[2][5] = jLabel18;
+
+    arreglo_labels[3][0] = jLabel19;
+    arreglo_labels[3][1] = jLabel20;
+    arreglo_labels[3][2] = jLabel21;
+    arreglo_labels[3][3] = jLabel22;
+    arreglo_labels[3][4] = jLabel23;
+    arreglo_labels[3][5] = jLabel24;
+
+    arreglo_labels[4][0] = jLabel25;
+    arreglo_labels[4][1] = jLabel26;
+    arreglo_labels[4][2] = jLabel27;
+    arreglo_labels[4][3] = jLabel28;
+    arreglo_labels[4][4] = jLabel29;
+    arreglo_labels[4][5] = jLabel30;
+
+    arreglo_labels[5][0] = jLabel31;
+    arreglo_labels[5][1] = jLabel32;
+    arreglo_labels[5][2] = jLabel33;
+    arreglo_labels[5][3] = jLabel34;
+    arreglo_labels[5][4] = jLabel35;
+    arreglo_labels[5][5] = jLabel36;
  
+    Border border = BorderFactory.createLineBorder(Color.RED);
+
+    int k[][] = tb.verPosiciones(0, 1);
+    int p = k[0][1];
+    int j = k[0][0];
+    arreglo_labels[p][j].setBorder(border);
+    
+    //arreglo_labels[p][j].setBackground(Color.yellow);
+}
+public void Prueba(){
+    posicionamiento_de_labels_en_arreglo();
+    arreglo_labels[1][1].setBackground(Color.yellow);
+    
 }
 
 }
