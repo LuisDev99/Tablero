@@ -378,6 +378,7 @@ public void Eliminar_Usuario()
        
 public void Cambiar_Password(String q)
 {
+
     
     File file2 = new File("contras.txt");
    
@@ -422,6 +423,8 @@ public void Cambiar_Password(String q)
 }
     public static void main(String[] args)
     {
+     
+    
     // Cambiar_Password("tepiso");
     //CrearUser();
     //CrearPassword(); 
