@@ -5,9 +5,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.border.Border;
-import javax.swing.border.LineBorder;
-
-
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -23,8 +20,8 @@ public class Tablero extends javax.swing.JFrame {
    UltimateTablero tb = new UltimateTablero();
    public static JLabel[][] arreglo_labels = new JLabel[6][6];
    Boolean poner_fantasmasj1 = true;
-    Boolean poner_fantasmasj2 = true;
-   public int fantasmas_j1 = 8;
+   Boolean poner_fantasmasj2 = true;
+   public int fantasmas_j1 = 7;
    public int fantasmas_j2 = 8;
     ImageIcon icon = new ImageIcon(getClass().getResource("fantasmas-halloween-gifs-156x130[4].gif"));
    
@@ -135,15 +132,35 @@ public class Tablero extends javax.swing.JFrame {
 
         jLabel4.setBackground(new java.awt.Color(0, 0, 0));
         jLabel4.setOpaque(true);
+        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel4MouseClicked(evt);
+            }
+        });
 
         jLabel3.setBackground(new java.awt.Color(153, 0, 0));
         jLabel3.setOpaque(true);
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel3MouseClicked(evt);
+            }
+        });
 
         jLabel6.setBackground(new java.awt.Color(0, 0, 0));
         jLabel6.setOpaque(true);
+        jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel6MouseClicked(evt);
+            }
+        });
 
         jLabel5.setBackground(new java.awt.Color(153, 0, 0));
         jLabel5.setOpaque(true);
+        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel5MouseClicked(evt);
+            }
+        });
 
         jLabel8.setBackground(new java.awt.Color(153, 0, 0));
         jLabel8.setOpaque(true);
@@ -163,21 +180,41 @@ public class Tablero extends javax.swing.JFrame {
 
         jLabel10.setBackground(new java.awt.Color(153, 0, 0));
         jLabel10.setOpaque(true);
+        jLabel10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel10MouseClicked(evt);
+            }
+        });
 
         jLabel9.setBackground(new java.awt.Color(0, 0, 0));
         jLabel9.setOpaque(true);
+        jLabel9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel9MouseClicked(evt);
+            }
+        });
 
         jLabel12.setBackground(new java.awt.Color(153, 0, 0));
         jLabel12.setOpaque(true);
 
         jLabel11.setBackground(new java.awt.Color(0, 0, 0));
         jLabel11.setOpaque(true);
+        jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel11MouseClicked(evt);
+            }
+        });
 
         jLabel14.setBackground(new java.awt.Color(0, 0, 0));
         jLabel14.setOpaque(true);
 
         jLabel13.setBackground(new java.awt.Color(153, 0, 0));
         jLabel13.setOpaque(true);
+        jLabel13.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel13MouseClicked(evt);
+            }
+        });
 
         jLabel16.setBackground(new java.awt.Color(0, 0, 0));
         jLabel16.setOpaque(true);
@@ -196,6 +233,11 @@ public class Tablero extends javax.swing.JFrame {
 
         jLabel19.setBackground(new java.awt.Color(0, 0, 0));
         jLabel19.setOpaque(true);
+        jLabel19.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel19MouseClicked(evt);
+            }
+        });
 
         jLabel22.setBackground(new java.awt.Color(153, 0, 0));
         jLabel22.setOpaque(true);
@@ -211,39 +253,89 @@ public class Tablero extends javax.swing.JFrame {
 
         jLabel26.setBackground(new java.awt.Color(0, 0, 0));
         jLabel26.setOpaque(true);
+        jLabel26.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel26MouseClicked(evt);
+            }
+        });
 
         jLabel25.setBackground(new java.awt.Color(153, 0, 0));
         jLabel25.setOpaque(true);
+        jLabel25.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel25MouseClicked(evt);
+            }
+        });
 
         jLabel28.setBackground(new java.awt.Color(0, 0, 0));
         jLabel28.setOpaque(true);
+        jLabel28.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel28MouseClicked(evt);
+            }
+        });
 
         jLabel27.setBackground(new java.awt.Color(153, 0, 0));
         jLabel27.setOpaque(true);
+        jLabel27.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel27MouseClicked(evt);
+            }
+        });
 
         jLabel30.setBackground(new java.awt.Color(0, 0, 0));
         jLabel30.setOpaque(true);
 
         jLabel29.setBackground(new java.awt.Color(153, 0, 0));
         jLabel29.setOpaque(true);
+        jLabel29.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel29MouseClicked(evt);
+            }
+        });
 
         jLabel32.setBackground(new java.awt.Color(153, 0, 0));
         jLabel32.setOpaque(true);
+        jLabel32.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel32MouseClicked(evt);
+            }
+        });
 
         jLabel31.setBackground(new java.awt.Color(0, 0, 0));
         jLabel31.setOpaque(true);
+        jLabel31.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel31MouseClicked(evt);
+            }
+        });
 
         jLabel34.setBackground(new java.awt.Color(153, 0, 0));
         jLabel34.setOpaque(true);
+        jLabel34.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel34MouseClicked(evt);
+            }
+        });
 
         jLabel33.setBackground(new java.awt.Color(0, 0, 0));
         jLabel33.setOpaque(true);
+        jLabel33.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel33MouseClicked(evt);
+            }
+        });
 
         jLabel36.setBackground(new java.awt.Color(153, 0, 0));
         jLabel36.setOpaque(true);
 
         jLabel35.setBackground(new java.awt.Color(0, 0, 0));
         jLabel35.setOpaque(true);
+        jLabel35.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel35MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -384,8 +476,32 @@ public class Tablero extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
-      
-        JOptionPane.showMessageDialog(this, "Hey");
+             posicionamiento_de_labels_en_arreglo();
+
+        if(fantasmas_j1>0)
+       {
+
+        boolean pos = tb.ubicar_fantasma(0,1);
+        if(pos==true){
+           arreglo_labels[0][1].setIcon(icon);
+           fantasmas_j1--;
+            
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "No puedes poner el fantasma ahi");
+        }
+       
+       }
+      else
+       {
+           if(fantasmas_j2 == 7)
+           JOptionPane.showMessageDialog(this, "Ahora le toca  el jugador poner fantasmas");
+           else 
+           JOptionPane.showMessageDialog(this, "No puedes colocar fantasmas aqui, le toca al jugador 2");    
+           /*
+           aquel pijaso de codigo de mover fantasma
+           */ 
+       }
       
     }//GEN-LAST:event_jLabel2MouseClicked
 
@@ -404,11 +520,13 @@ public class Tablero extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowClosing
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
-       
-        int i[][] = tb.verPosiciones(1, 12);
+ 
+        
+        //Codigo para ver las posiciones disponibles
+        /*int i[][] = tb.verPosiciones(1, 12);
         JOptionPane.showMessageDialog(this, i[0][2]);
         posicionamiento_de_labels_en_arreglo();
-        Prueba();
+        Prueba();*/
         
         
     }//GEN-LAST:event_jLabel1MouseClicked
@@ -418,30 +536,443 @@ public class Tablero extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowActivated
 
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
-       if(fantasmas_j1>0)
+
+    }//GEN-LAST:event_jLabel7MouseClicked
+
+    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+               posicionamiento_de_labels_en_arreglo();
+
+        if(fantasmas_j1>0)
        {
-        posicionamiento_de_labels_en_arreglo();
-        boolean pos = tb.ubicar_fantasma(1,0);
+
+        boolean pos = tb.ubicar_fantasma(0,2);
         if(pos==true){
-           arreglo_labels[1][1].setIcon(icon);
-           JOptionPane.showMessageDialog(this, pos);
+           arreglo_labels[0][2].setIcon(icon);
+          fantasmas_j1--; 
             
         }
         else{
-            JOptionPane.showMessageDialog(this, "No puede hacer esa mierda! Puta mano guirro pendejo");
+            JOptionPane.showMessageDialog(this, "No puedes poner el fantasma ahi");
         }
-       fantasmas_j1--;
+     
        }
       else
        {
-           JOptionPane.showMessageDialog(this, "No hdp! ya no podes meter mas fantamas, que hdp mas imbecil");
+          if(fantasmas_j2 == 7)
+           JOptionPane.showMessageDialog(this, "Ahora le toca  el jugador poner fantasmas");
+           else 
+           JOptionPane.showMessageDialog(this, "No puedes colocar fantasmas aqui, le toca al jugador 2");
+       }
+    }//GEN-LAST:event_jLabel3MouseClicked
+
+    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
+           posicionamiento_de_labels_en_arreglo();
+
+        if(fantasmas_j1>0)
+       {
+
+        boolean pos = tb.ubicar_fantasma(0,3);
+        if(pos==true){
+           arreglo_labels[0][3].setIcon(icon);
+          fantasmas_j1--;
+            
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "No puedes poner el fantasma ahi");
+        }
+       
+       }
+      else
+       {
+          if(fantasmas_j2 == 7)
+           JOptionPane.showMessageDialog(this, "Ahora le toca  el jugador poner fantasmas");
+           else 
+           JOptionPane.showMessageDialog(this, "No puedes colocar fantasmas aqui, le toca al jugador 2");
+       }
+    }//GEN-LAST:event_jLabel4MouseClicked
+
+    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
+              posicionamiento_de_labels_en_arreglo();
+
+        if(fantasmas_j1>0)
+       {
+
+        boolean pos = tb.ubicar_fantasma(0,4);
+        if(pos==true){
+           arreglo_labels[0][4].setIcon(icon);
+          fantasmas_j1--;
+            
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "No puedes poner el fantasma ahi");
+        }
+ 
+       }
+      else
+       {
+         if(fantasmas_j2 == 7)
+           JOptionPane.showMessageDialog(this, "Ahora le toca  el jugador poner fantasmas");
+           else 
+           JOptionPane.showMessageDialog(this, "No puedes colocar fantasmas aqui, le toca al jugador 2");
+       }
+    }//GEN-LAST:event_jLabel5MouseClicked
+
+    private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
+
+    }//GEN-LAST:event_jLabel6MouseClicked
+
+    private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
+
+    }//GEN-LAST:event_jLabel13MouseClicked
+
+    private void jLabel19MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel19MouseClicked
+                          posicionamiento_de_labels_en_arreglo();
+
+        if(fantasmas_j1>0)
+       {
+
+        boolean pos = tb.ubicar_fantasma(3,0);
+        if(pos==true){
+           arreglo_labels[3][0].setIcon(icon);
+           fantasmas_j1--;
+            
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "No puedes poner el fantasma ahi");
+        }
+       
+       }
+      else
+       {
+           if(fantasmas_j2 == 7)
+           JOptionPane.showMessageDialog(this, "Ahora le toca  el jugador poner fantasmas");
+           else 
+           JOptionPane.showMessageDialog(this, "No puedes colocar fantasmas aqui, le toca al jugador 2");
+       }
+    }//GEN-LAST:event_jLabel19MouseClicked
+
+    private void jLabel25MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel25MouseClicked
+                           posicionamiento_de_labels_en_arreglo();
+
+        if(fantasmas_j1>0)
+       {
+
+        boolean pos = tb.ubicar_fantasma(4,0);
+        if(pos==true){
+           arreglo_labels[4][0].setIcon(icon);
+          fantasmas_j1--;
+            
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "No puedes poner el fantasma ahi");
+        }
+       
+       }
+      else
+       {
+if(fantasmas_j2 == 7)
+           JOptionPane.showMessageDialog(this, "Ahora le toca  el jugador poner fantasmas");
+           else 
+           JOptionPane.showMessageDialog(this, "No puedes colocar fantasmas aqui, le toca al jugador 2");
+       }
+    }//GEN-LAST:event_jLabel25MouseClicked
+
+    private void jLabel31MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel31MouseClicked
+                          posicionamiento_de_labels_en_arreglo();
+
+        if(fantasmas_j1>0)
+       {
+
+        boolean pos = tb.ubicar_fantasma(5,0);
+        if(pos==true){
+           arreglo_labels[5][0].setIcon(icon);
+           fantasmas_j1--;
+            
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "No puedes poner el fantasma ahi");
+        }
+  
+       }
+      else
+       {
+          if(fantasmas_j2 == 7)
+           JOptionPane.showMessageDialog(this, "Ahora le toca  el jugador poner fantasmas");
+           else 
+           JOptionPane.showMessageDialog(this, "No puedes colocar fantasmas aqui, le toca al jugador 2");
+       }
+    }//GEN-LAST:event_jLabel31MouseClicked
+
+    private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
+        // TODO add your handling code here:
+           if(fantasmas_j1>0)
+       {
+
+        boolean pos = tb.ubicar_fantasma(1,2);
+        if(pos==true){
+           arreglo_labels[1][2].setIcon(icon);
+           fantasmas_j1--;
+            
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "No puedes poner el fantasma ahi");
+        }
+       
+       }
+      else
+       {
+           if(fantasmas_j2 == 7)
+           JOptionPane.showMessageDialog(this, "Ahora le toca  el jugador poner fantasmas");
+           else 
+           JOptionPane.showMessageDialog(this, "No puedes colocar fantasmas aqui, le toca al jugador 2"); 
+       }
+    }//GEN-LAST:event_jLabel9MouseClicked
+
+    private void jLabel10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseClicked
+               if(fantasmas_j1>0)
+       {
+
+        boolean pos = tb.ubicar_fantasma(1,3);
+        if(pos==true){
+           arreglo_labels[1][3].setIcon(icon);
+           fantasmas_j1--;
+            
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "No puedes poner el fantasma ahi");
+        }
+       
+       }
+      else
+       {
+           if(fantasmas_j2 == 7)
+           JOptionPane.showMessageDialog(this, "Ahora le toca  el jugador poner fantasmas");
+           else 
+           JOptionPane.showMessageDialog(this, "No puedes colocar fantasmas aqui, le toca al jugador 2");
+       }
+    }//GEN-LAST:event_jLabel10MouseClicked
+
+    private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
+     if(fantasmas_j1>0)
+       {
+
+        boolean pos = tb.ubicar_fantasma(1,4);
+        if(pos==true){
+           arreglo_labels[1][4].setIcon(icon);
+            fantasmas_j1--;
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "No puedes poner el fantasma ahi");
+        }
+      
+       }
+      else
+       {
+           if(fantasmas_j2 == 7)
+           JOptionPane.showMessageDialog(this, "Ahora le toca  el jugador poner fantasmas");
+           else 
+           JOptionPane.showMessageDialog(this, "No puedes colocar fantasmas aqui, le toca al jugador 2"); 
+       }
+    }//GEN-LAST:event_jLabel11MouseClicked
+
+    private void jLabel26MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel26MouseClicked
+        // TODO add your handling code here:
+        if(fantasmas_j1==0 && fantasmas_j2 >0)
+       {
+
+        boolean pos = tb.ubicar_fantasma(4,1);
+        if(pos==true){
+           arreglo_labels[4][1].setIcon(icon);
+           fantasmas_j2--;
+            
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "No puedes poner el fantasma ahi");
+        }
+       
+       }
+      else
+       {
+           JOptionPane.showMessageDialog(this, "El jugador 1 no ha terminado de posicionar los fantasmas");
            /*
            aquel pijaso de codigo de mover fantasma
            */ 
        }
+    }//GEN-LAST:event_jLabel26MouseClicked
+
+    private void jLabel27MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel27MouseClicked
+        // TODO add your handling code here:
+                if(fantasmas_j1==0 && fantasmas_j2 >0)
+       {
+
+        boolean pos = tb.ubicar_fantasma(4,2);
+        if(pos==true){
+           arreglo_labels[4][2].setIcon(icon);
+           fantasmas_j2--;
+            
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "No puedes poner el fantasma ahi");
+        }
        
+       }
+      else
+       {
+           JOptionPane.showMessageDialog(this, "El jugador 1 no ha terminado de posicionar los fantasmas");
+           /*
+           aquel pijaso de codigo de mover fantasma
+           */ 
+       }
+    }//GEN-LAST:event_jLabel27MouseClicked
+
+    private void jLabel28MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel28MouseClicked
+        // TODO add your handling code here:
+                    if(fantasmas_j1==0 && fantasmas_j2 >0)
+       {
+
+        boolean pos = tb.ubicar_fantasma(4,3);
+        if(pos==true){
+           arreglo_labels[4][3].setIcon(icon);
+           fantasmas_j2--;
+            
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "No puedes poner el fantasma ahi");
+        }
        
-    }//GEN-LAST:event_jLabel7MouseClicked
+       }
+      else
+       {
+           JOptionPane.showMessageDialog(this, "El jugador 1 no ha terminado de posicionar los fantasmas");
+           /*
+           aquel pijaso de codigo de mover fantasma
+           */ 
+       }
+    }//GEN-LAST:event_jLabel28MouseClicked
+
+    private void jLabel29MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel29MouseClicked
+        // TODO add your handling code here:
+                          if(fantasmas_j1==0 && fantasmas_j2 >0)
+       {
+
+        boolean pos = tb.ubicar_fantasma(4,4);
+        if(pos==true){
+           arreglo_labels[4][4].setIcon(icon);
+           fantasmas_j2--;
+            
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "No puedes poner el fantasma ahi");
+        }
+       
+       }
+      else
+       {
+           JOptionPane.showMessageDialog(this, "El jugador 1 no ha terminado de posicionar los fantasmas");
+           /*
+           aquel pijaso de codigo de mover fantasma
+           */ 
+       }
+    }//GEN-LAST:event_jLabel29MouseClicked
+
+    private void jLabel32MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel32MouseClicked
+        // TODO add your handling code here:
+                               if(fantasmas_j1==0 && fantasmas_j2 >0)
+       {
+
+        boolean pos = tb.ubicar_fantasma(5,1);
+        if(pos==true){
+           arreglo_labels[5][1].setIcon(icon);
+           fantasmas_j2--;
+            
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "No puedes poner el fantasma ahi");
+        }
+       
+       }
+      else
+       {
+           JOptionPane.showMessageDialog(this, "El jugador 1 no ha terminado de posicionar los fantasmas");
+           /*
+           aquel pijaso de codigo de mover fantasma
+           */ 
+       }
+    }//GEN-LAST:event_jLabel32MouseClicked
+
+    private void jLabel33MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel33MouseClicked
+        // TODO add your handling code here:
+                                       if(fantasmas_j1==0 && fantasmas_j2 >0)
+       {
+
+        boolean pos = tb.ubicar_fantasma(5,2);
+        if(pos==true){
+           arreglo_labels[5][2].setIcon(icon);
+           fantasmas_j2--;
+            
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "No puedes poner el fantasma ahi");
+        }
+       
+       }
+      else
+       {
+           JOptionPane.showMessageDialog(this, "El jugador 1 no ha terminado de posicionar los fantasmas");
+           /*
+           aquel pijaso de codigo de mover fantasma
+           */ 
+       }
+    }//GEN-LAST:event_jLabel33MouseClicked
+
+    private void jLabel34MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel34MouseClicked
+        // TODO add your handling code here:
+                                          if(fantasmas_j1==0 && fantasmas_j2 >0)
+       {
+
+        boolean pos = tb.ubicar_fantasma(5,3);
+        if(pos==true){
+           arreglo_labels[5][3].setIcon(icon);
+           fantasmas_j2--;
+            
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "No puedes poner el fantasma ahi");
+        }
+       
+       }
+      else
+       {
+           JOptionPane.showMessageDialog(this, "El jugador 1 no ha terminado de posicionar los fantasmas");
+           /*
+           aquel pijaso de codigo de mover fantasma
+           */ 
+       }
+    }//GEN-LAST:event_jLabel34MouseClicked
+
+    private void jLabel35MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel35MouseClicked
+                                       if(fantasmas_j1==0 && fantasmas_j2 >0)
+       {
+
+        boolean pos = tb.ubicar_fantasma(5,4);
+        if(pos==true){
+           arreglo_labels[5][4].setIcon(icon);
+           fantasmas_j2--;
+            
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "No puedes poner el fantasma ahi");
+        }
+       
+       }
+      else
+       {
+           JOptionPane.showMessageDialog(this, "El jugador 1 no ha terminado de posicionar los fantasmas");
+           /*
+           aquel pijaso de codigo de mover fantasma
+           */ 
+       }
+    }//GEN-LAST:event_jLabel35MouseClicked
     
     /**
      * @param args the command line arguments

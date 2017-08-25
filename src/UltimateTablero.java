@@ -30,12 +30,13 @@ public class UltimateTablero {
     }
     
     public Boolean ubicar_fantasma(int fila, int columna){
-        Boolean verificador = false;
+        Boolean verificador = true;
         
-        if(fila>=1 && fila<=4 && columna >= 1 && columna <= 4){
-            verificador = false;
+        if(fila==0 && columna == 0 || columna == 6  || columna == 6 && fila == 0){           
+            verificador = false;                       
         }
        
+        
         return verificador;
     }    
    
