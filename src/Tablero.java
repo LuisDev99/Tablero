@@ -6,24 +6,16 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.border.Border;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- *
- * @author dell
- */
 public class Tablero extends javax.swing.JFrame {
-   UltimateTablero tb = new UltimateTablero();
+   
+   
    public static JLabel[][] arreglo_labels = new JLabel[6][6];
    Boolean poner_fantasmasj1 = true;
    Boolean poner_fantasmasj2 = true;
    public int fantasmas_j1 = 7;
    public int fantasmas_j2 = 8;
-    ImageIcon icon = new ImageIcon(getClass().getResource("fantasmas-halloween-gifs-156x130[4].gif"));
+   UltimateTablero tb = new UltimateTablero();
+   ImageIcon icon = new ImageIcon(getClass().getResource("fantasmas-halloween-gifs-156x130[4].gif"));
    
    public static boolean v = false;
     
@@ -218,6 +210,11 @@ public class Tablero extends javax.swing.JFrame {
 
         jLabel16.setBackground(new java.awt.Color(0, 0, 0));
         jLabel16.setOpaque(true);
+        jLabel16.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel16MouseClicked(evt);
+            }
+        });
 
         jLabel15.setBackground(new java.awt.Color(153, 0, 0));
         jLabel15.setOpaque(true);
@@ -244,6 +241,11 @@ public class Tablero extends javax.swing.JFrame {
 
         jLabel21.setBackground(new java.awt.Color(0, 0, 0));
         jLabel21.setOpaque(true);
+        jLabel21.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel21MouseClicked(evt);
+            }
+        });
 
         jLabel24.setBackground(new java.awt.Color(153, 0, 0));
         jLabel24.setOpaque(true);
@@ -784,7 +786,8 @@ if(fantasmas_j2 == 7)
         if(pos==true){
            arreglo_labels[4][1].setIcon(icon);
            fantasmas_j2--;
-            
+           tb.fantasma_label[4][1]=true;
+          // arreglo_labels[4][1].setBackground(Color.red);
         }
         else{
             JOptionPane.showMessageDialog(this, "No puedes poner el fantasma ahi");
@@ -802,23 +805,34 @@ if(fantasmas_j2 == 7)
 
     private void jLabel27MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel27MouseClicked
         // TODO add your handling code here:
-                if(fantasmas_j1==0 && fantasmas_j2 >0)
+       if(fantasmas_j1==0 && fantasmas_j2 >0)
        {
-
-        boolean pos = tb.ubicar_fantasma(4,2);
-        if(pos==true){
-           arreglo_labels[4][2].setIcon(icon);
-           fantasmas_j2--;
-            
-        }
-        else{
-            JOptionPane.showMessageDialog(this, "No puedes poner el fantasma ahi");
-        }
+            boolean pos = tb.ubicar_fantasma(4,2);
+            if(pos==true){
+               arreglo_labels[4][2].setIcon(icon);
+               fantasmas_j2--;   
+               tb.fantasma_label[4][2] = true;
+             //  arreglo_labels[4][2].setBackground(Color.red);
+            }
+            else
+            {
+                
+                JOptionPane.showMessageDialog(this, "No puedes poner el fantasma ahi");
+            }
        
        }
       else
-       {
-           JOptionPane.showMessageDialog(this, "El jugador 1 no ha terminado de posicionar los fantasmas");
+       {   
+           if(fantasmas_j2==0)
+           {
+               
+               JOptionPane.showMessageDialog(this, "ok:");
+               //tb.identificar_pos_disponibles(4, 2);
+           }
+           else
+           {
+               JOptionPane.showMessageDialog(this, "El jugador 1 no ha terminado de posicionar los fantasmas");
+           }
            /*
            aquel pijaso de codigo de mover fantasma
            */ 
@@ -826,17 +840,19 @@ if(fantasmas_j2 == 7)
     }//GEN-LAST:event_jLabel27MouseClicked
 
     private void jLabel28MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel28MouseClicked
-        // TODO add your handling code here:
-                    if(fantasmas_j1==0 && fantasmas_j2 >0)
+        
+        if(fantasmas_j1==0 && fantasmas_j2 >0)
        {
-
         boolean pos = tb.ubicar_fantasma(4,3);
-        if(pos==true){
+        if(pos==true)
+        {
            arreglo_labels[4][3].setIcon(icon);
-           fantasmas_j2--;
-            
+           fantasmas_j2--; 
+           tb.fantasma_label[4][3]=true;
+           //arreglo_labels[4][3].setBackground(Color.red);
         }
-        else{
+        else
+        {
             JOptionPane.showMessageDialog(this, "No puedes poner el fantasma ahi");
         }
        
@@ -848,6 +864,7 @@ if(fantasmas_j2 == 7)
            aquel pijaso de codigo de mover fantasma
            */ 
        }
+                    
     }//GEN-LAST:event_jLabel28MouseClicked
 
     private void jLabel29MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel29MouseClicked
@@ -909,7 +926,7 @@ if(fantasmas_j2 == 7)
         if(pos==true){
            arreglo_labels[5][2].setIcon(icon);
            fantasmas_j2--;
-            
+           tb.fantasma_label[5][2]=true;
         }
         else{
             JOptionPane.showMessageDialog(this, "No puedes poner el fantasma ahi");
@@ -973,6 +990,15 @@ if(fantasmas_j2 == 7)
            */ 
        }
     }//GEN-LAST:event_jLabel35MouseClicked
+
+    private void jLabel16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel16MouseClicked
+
+    private void jLabel21MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel21MouseClicked
+        tb.fantasma_label[3][2]=false;
+        
+    }//GEN-LAST:event_jLabel21MouseClicked
     
     /**
      * @param args the command line arguments
