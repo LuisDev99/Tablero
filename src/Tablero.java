@@ -1151,7 +1151,7 @@ public void Prueba(){
        fantasma_label[3][3] = false;
        fantasma_label[2][2] = false;
        fantasma_label[2][4] = false;
-     
+     //
        
        if(fantasma_label[fila-1][columna]== false)
         arreglo_labels[fila-1][columna].setBackground(Color.YELLOW);      
