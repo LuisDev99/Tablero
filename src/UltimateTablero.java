@@ -5,7 +5,8 @@ import java.awt.Color;
 public class UltimateTablero {
     
     
-    public static Boolean[][] fantasma_label = new Boolean[6][6]; 
+    public Boolean[][] fantasma_label = new Boolean[6][6]; 
+   
     
     public int[][] verPosiciones(int posicion1, int posicion2)
     {
@@ -30,23 +31,27 @@ public class UltimateTablero {
         
         return verificador;
     }    
-   public static Boolean identificar_pos_disponibles(int fila, int columna)
+   public void identificar_pos_disponibles(int fila, int columna)
    {
        Tablero tablero = new Tablero();
+       tablero.posicionamiento_de_labels_en_arreglo();
        boolean disponibilidad = false;
        
-       if(fantasma_label[fila-1][columna]==false)
-           tablero.arreglo_labels[fila-1][columna].setBackground(Color.red);
-       /*
-       if(fantasma_label[fila+1][columna]==true)
-           tablero.arreglo_labels[fila+1][columna].setBackground(Color.red);
-       if(fantasma_label[fila][columna+1]==true)
-           tablero.arreglo_labels[fila][columna+1].setBackground(Color.red);
-       if(fantasma_label[fila][columna-1]==true)
-           tablero.arreglo_labels[fila][columna-1].setBackground(Color.red);
-       */
+       fantasma_label[5][3] = false;
+       fantasma_label[3][3] = true;
+       fantasma_label[4][2] = false;
+       fantasma_label[4][5] = false;
        
-       return disponibilidad;
+       if(fantasma_label[fila-1][columna]== false)
+        Tablero.arreglo_labels[fila-1][columna].setBackground(Color.YELLOW);      
+       if(fantasma_label[fila+1][columna] == false)
+        Tablero.arreglo_labels[fila+1][columna].setBackground(Color.YELLOW);
+       if(fantasma_label[fila][columna+1] == false)
+        Tablero.arreglo_labels[fila][columna+1].setBackground(Color.YELLOW);
+       if(fantasma_label[fila][columna-1] == false)
+        Tablero.arreglo_labels[fila][columna-1].setBackground(Color.YELLOW);
+       
+       //return disponibilidad;
        
    }
 }

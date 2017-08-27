@@ -8,7 +8,7 @@ import javax.swing.border.Border;
 
 public class Tablero extends javax.swing.JFrame {
    
-   
+   public Boolean[][] fantasma_label = new Boolean[6][6]; 
    public static JLabel[][] arreglo_labels = new JLabel[6][6];
    Boolean poner_fantasmasj1 = true;
    Boolean poner_fantasmasj2 = true;
@@ -960,7 +960,8 @@ if(fantasmas_j2 == 7)
        }
       else
        {
-           JOptionPane.showMessageDialog(this, "El jugador 1 no ha terminado de posicionar los fantasmas");
+           
+           identificar_pos_disponibles(2, 3);
            /*
            aquel pijaso de codigo de mover fantasma
            */ 
@@ -1132,7 +1133,7 @@ public void posicionamiento_de_labels_en_arreglo(){
     int k[][] = tb.verPosiciones(0, 1);
     int p = k[0][1];
     int j = k[0][0];
-    arreglo_labels[p][j].setBorder(border);
+   // arreglo_labels[p][j].setBorder(border);
     
     //arreglo_labels[p][j].setBackground(Color.yellow);
 }
@@ -1141,5 +1142,28 @@ public void Prueba(){
     arreglo_labels[1][1].setBackground(Color.yellow);
     
 }
+ public void identificar_pos_disponibles(int fila, int columna)
+   {
+       posicionamiento_de_labels_en_arreglo();
+     
+       
+       fantasma_label[1][3] = false;
+       fantasma_label[3][3] = false;
+       fantasma_label[2][2] = false;
+       fantasma_label[2][4] = false;
+     
+       
+       if(fantasma_label[fila-1][columna]== false)
+        arreglo_labels[fila-1][columna].setBackground(Color.YELLOW);      
+       if(fantasma_label[fila+1][columna] == false)
+        arreglo_labels[fila+1][columna].setBackground(Color.YELLOW);
+       if(fantasma_label[fila][columna+1] == false)
+        arreglo_labels[fila][columna+1].setBackground(Color.YELLOW);
+       if(fantasma_label[fila][columna-1] == false)
+        arreglo_labels[fila][columna-1].setBackground(Color.YELLOW);
+       
+       //return disponibilidad;
+       
+   }
 
 }
