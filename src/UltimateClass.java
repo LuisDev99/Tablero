@@ -32,7 +32,7 @@ public class UltimateClass {
     public static void CrearUser(){
         /*Esta funcion lo que hace es crear un archivo de texto con el nombre testing
           y escribira usuarios ya preestablecidos para evitar crear usuarios uno por uno*/
-        
+    
 	File file = new File("testing.txt");
 	ArrayList<String> list = new ArrayList<String>();
 	String jugadores[] = {"luis", "carlos", "michael", "gerardo", "richard", "rafa", "erick", "zidane", "xuxin", "zepeda"}; //10
@@ -58,14 +58,14 @@ public class UltimateClass {
 	}
 	
 	getfile(); //Se llama esta funcion para almacenar los usuarios en el arraylist dinamicamente
-	
+
 	}
       public static void CrearPassword(){
         /*Esta funcion lo que hace es crear un archivo de texto con el nombre contras
           y escribira contraseñas ya preestablecidos para evitar crear usuarios uno por uno*/ 
         
 	File file = new File("contras.txt");
-	ArrayList<String> list = new ArrayList<String>();
+	ArrayList<String> list = new ArrayList<>();
 	String contras[] = {"tus", "tusn", "tusna", "tusnal", "tusnali", "tusnalit", "tusnalita", "tusnalitas","tusnalotas", "tusnalgas" }; //10
 	for(int i = 0; i <contras.length; i++){
 		list.add(contras[i]);

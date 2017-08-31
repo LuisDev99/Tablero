@@ -12,7 +12,7 @@ import java.util.ArrayList;
  */
 public class Arrays_Test {
     
-    static ArrayList<String> myArray;
+    public static ArrayList<String> myArray;
     public static String jugadores[] = {"luis", "carlos", "michael", "gerardo", "richard", "rafa", "erick", "zidane", "xuxin", "zepeda"};
     public static String contras[] = {"tus", "tusn", "tusna", "tusnal", "tusnali", "tusnalit", "tusnalita", "tusnalitas","tusnalotas", "tusnalgas" };    
     public static String ab; //Esta variable guardara al primer usuario que haga login, para que no se pueda ingresar este mismo usuario como el segundo jugador que jugara la partida

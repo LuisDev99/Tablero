@@ -27,4 +27,19 @@ public class Tablero_prueba extends JFrame
             setSize(400,400);
             setLocation(300,300);
     }
+    
+    public static void main(String[] args){
+        int x = 0;
+        int g = 0;
+        
+        try{
+            int h = x/g;
+            
+        }catch(ArithmeticException e){
+            System.out.println("Hay un error en la linea 39"+ e.toString());
+            
+        }
+        
+        
+    }
 }

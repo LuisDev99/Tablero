@@ -15,6 +15,7 @@ public class Tablero extends javax.swing.JFrame {
    public int fantasmas_j1 = 7;
    public int fantasmas_j2 = 8;
    UltimateTablero tb = new UltimateTablero();
+   boolean t = false;
    ImageIcon icon = new ImageIcon(getClass().getResource("fantasmas-halloween-gifs-156x130[4].gif"));
    
    public static boolean v = false;
@@ -227,6 +228,11 @@ public class Tablero extends javax.swing.JFrame {
 
         jLabel20.setBackground(new java.awt.Color(153, 0, 0));
         jLabel20.setOpaque(true);
+        jLabel20.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel20MouseClicked(evt);
+            }
+        });
 
         jLabel19.setBackground(new java.awt.Color(0, 0, 0));
         jLabel19.setOpaque(true);
@@ -513,7 +519,7 @@ public class Tablero extends javax.swing.JFrame {
         if(pos=true)
            arreglo_labels[1][1].setIcon(icon);
         else
-            JOptionPane.showMessageDialog(this, "No puede hacer esa mierda! Puta mano guirro pendejo");
+            JOptionPane.showMessageDialog(this, "No puede hacer eso");
         
     }//GEN-LAST:event_jLabel8MouseClicked
 
@@ -796,7 +802,16 @@ if(fantasmas_j2 == 7)
        }
       else
        {
-           JOptionPane.showMessageDialog(this, "El jugador 1 no ha terminado de posicionar los fantasmas");
+                      if(t == false){
+               jLabel26.setIcon(null);
+               t = true;
+               
+               
+           }else{
+               jLabel34.setIcon(icon);
+               t = false;
+                      }
+           //JOptionPane.showMessageDialog(this, "El jugador 1 no ha terminado de posicionar los fantasmas");
            /*
            aquel pijaso de codigo de mover fantasma
            */ 
@@ -960,7 +975,12 @@ if(fantasmas_j2 == 7)
        }
       else
        {
-           
+           if(t == false){
+               jLabel34.setIcon(null);
+               
+               
+           }else
+               jLabel34.setIcon(icon);
            identificar_pos_disponibles(2, 3);
            /*
            aquel pijaso de codigo de mover fantasma
@@ -1000,6 +1020,20 @@ if(fantasmas_j2 == 7)
         tb.fantasma_label[3][2]=false;
         
     }//GEN-LAST:event_jLabel21MouseClicked
+
+    private void jLabel20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel20MouseClicked
+        // TODO add your handling code here:
+        if(fantasmas_j1 == 0 && fantasmas_j2 == 0){
+              if(/*fantasma_label[4][4] == false || fantasma_label[] &&*/ t == false){ //Si por lo menos hay una posicion en el arreglo false que se quite y poner una variable t paraa poder mover el icono
+               jLabel20.setIcon(null);
+               t = true;
+               fantasma_label[0][0] = false;
+               
+           }else
+               jLabel20.setIcon(icon);
+            t = false;
+        }
+    }//GEN-LAST:event_jLabel20MouseClicked
     
     /**
      * @param args the command line arguments
