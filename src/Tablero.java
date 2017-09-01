@@ -15,7 +15,7 @@ public class Tablero extends javax.swing.JFrame {
    public int fantasmas_j1 = 7;
    public int fantasmas_j2 = 8;
    UltimateTablero tb = new UltimateTablero();
-   boolean t = false;
+   boolean t = false; 
    ImageIcon icon = new ImageIcon(getClass().getResource("fantasmas-halloween-gifs-156x130[4].gif"));
    
    public static boolean v = false;
@@ -492,6 +492,7 @@ public class Tablero extends javax.swing.JFrame {
         boolean pos = tb.ubicar_fantasma(0,1);
         if(pos==true){
            arreglo_labels[0][1].setIcon(icon);
+           fantasma_label[0][1] = true;
            fantasmas_j1--;
             
         }
@@ -556,6 +557,7 @@ public class Tablero extends javax.swing.JFrame {
         boolean pos = tb.ubicar_fantasma(0,2);
         if(pos==true){
            arreglo_labels[0][2].setIcon(icon);
+           fantasma_label[0][2] = true;
           fantasmas_j1--; 
             
         }
@@ -1029,11 +1031,22 @@ if(fantasmas_j2 == 7)
                t = true;
                fantasma_label[0][0] = false;
                
-           }else
+           }else /*if( t == true && thislabel = false)*/{
                jLabel20.setIcon(icon);
             t = false;
+           //}else
+             //  JOptionPane.showMessageDialog(this, "No hay ninguna posicion disponible para mover el fanstama");
+        }
         }
     }//GEN-LAST:event_jLabel20MouseClicked
+    //Funcion booleana(posicion del fantasma que queremos mover){
+  //if(arreglo1 && arreglo2)
+    //if(
+//}
+    
+    
+    
+    
     
     /**
      * @param args the command line arguments
