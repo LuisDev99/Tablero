@@ -28,6 +28,7 @@ public class Login extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         textField1 = new java.awt.TextField();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login");
@@ -71,6 +72,9 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fantasmas-halloween-gifs-156x130[4].gif"))); // NOI18N
+        jLabel4.setToolTipText("");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -96,7 +100,11 @@ public class Login extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(141, 141, 141)
                         .addComponent(jButton1)))
-                .addContainerGap(101, Short.MAX_VALUE))
+                .addContainerGap(248, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(46, 46, 46))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -119,7 +127,9 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addGap(16, 16, 16)
                 .addComponent(jButton2)
-                .addContainerGap(67, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(46, Short.MAX_VALUE))
         );
 
         pack();
@@ -208,6 +218,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPasswordField jPasswordField1;
     private java.awt.TextField textField1;
     // End of variables declaration//GEN-END:variables
