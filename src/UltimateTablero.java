@@ -6,6 +6,7 @@ public class UltimateTablero {
     
     
     public Boolean[][] fantasma_label = new Boolean[6][6]; 
+    
    
     
     public int[][] verPosiciones(int posicion1, int posicion2)
@@ -31,27 +32,16 @@ public class UltimateTablero {
         
         return verificador;
     }    
-   public void identificar_pos_disponibles(int fila, int columna)
-   {
-       Tablero tablero = new Tablero();
-       tablero.posicionamiento_de_labels_en_arreglo();
-       boolean disponibilidad = false;
-       
-       fantasma_label[5][3] = false;
-       fantasma_label[3][3] = true;
-       fantasma_label[4][2] = false;
-       fantasma_label[4][5] = false;
-       
-       if(fantasma_label[fila-1][columna]== false)
-        Tablero.arreglo_labels[fila-1][columna].setBackground(Color.YELLOW);      
-       if(fantasma_label[fila+1][columna] == false)
-        Tablero.arreglo_labels[fila+1][columna].setBackground(Color.YELLOW);
-       if(fantasma_label[fila][columna+1] == false)
-        Tablero.arreglo_labels[fila][columna+1].setBackground(Color.YELLOW);
-       if(fantasma_label[fila][columna-1] == false)
-        Tablero.arreglo_labels[fila][columna-1].setBackground(Color.YELLOW);
-       
-       //return disponibilidad;
-       
-   }
+    public void arreglo_falsear()
+    {
+        Tablero tablero = new Tablero();
+        for (int i = 0; i <tablero.fantasma_label.length ; i++) 
+        {
+            for (int j = 0; j < tablero.fantasma_label.length; j++) 
+            {
+                tablero.fantasma_label[i][j]=false;
+            }
+        }
+    }
+    
 }

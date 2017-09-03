@@ -140,7 +140,7 @@ public class Mi_Perfil extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2MouseClicked
 
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
-     
+    
         String q =  JOptionPane.showInputDialog(null, "Ingrese la nueva contraseña: ");
         if(q.length()>0){
        ultimate.Cambiar_Password(q);
