@@ -291,30 +291,11 @@ public void Eliminar_Usuario()
     get_pass_from_file.clear();
     getfile();
     get_password();
-    temp.clear();
-    temp1.clear();
+    
     File file = new File("testing.txt");
     File file2 = new File("contras.txt");
-        
-        temp.addAll(get_user_from_file);
-        temp1.addAll(get_pass_from_file);        
-	
-	try{
-		FileWriter fw = new FileWriter(file);
-		Writer output = new BufferedWriter(fw);
-		
-		
-		for(int i = 0; i<get_user_from_file.size(); i++){
-			output.write(limpiador.get(i));
-			output.write("\n");
-		}
-		output.close();
-		
-	}catch(Exception e){
-		JOptionPane.showMessageDialog(null, "Cuenta eliminida. ");
-		
-	}
-        temp.remove(posicion_del_usuario);
+     
+       get_user_from_file.remove(posicion_del_usuario);
 	
 	
         	try{
@@ -322,8 +303,8 @@ public void Eliminar_Usuario()
                         Writer output = new BufferedWriter(fw);
 
 
-                        for(int i = 0; i<temp.size(); i++){
-                                output.write(temp.get(i));
+                        for(int i = 0; i<get_user_from_file.size(); i++){
+                                output.write(get_user_from_file.get(i));
                                 output.write("\n");
 		}
 		output.close();
@@ -332,34 +313,17 @@ public void Eliminar_Usuario()
                             JOptionPane.showMessageDialog(null, "Cuenta eliminida. ");
 		
         }
-	temp.clear();
-        
 	
-        try{
-		FileWriter fw1 = new FileWriter(file2);
-		Writer output = new BufferedWriter(fw1);
-		
-		
-		for(int i = 0; i<get_pass_from_file.size(); i++){
-			output.write(limpiador.get(i));
-			output.write("\n");
-		}
-		output.close();
-		
-	}catch(Exception e){
-		//JOptionPane.showMessageDialog(null, "Cuenta eliminida. ");
-		
-	}
-    temp1.remove(posicion_de_la_contra);
+    get_pass_from_file.remove(posicion_de_la_contra);
         
         try{
 		FileWriter fw1 = new FileWriter(file2);
 		Writer output = new BufferedWriter(fw1);
 		
 		
-		for(int i = 0; i<temp1.size(); i++)
+		for(int i = 0; i< get_pass_from_file.size(); i++)
                 {
-			output.write(temp1.get(i));
+			output.write( get_pass_from_file.get(i));
 			output.write("\n");
 		}
 		output.close();
@@ -370,16 +334,19 @@ public void Eliminar_Usuario()
 	}
         get_user_from_file.clear(); //Lo que hace es limpiar los datos que estan en este arreglo porque si no se sobreescribira
         get_pass_from_file.clear();
-        temp1.clear();
+       
         //get_user_from_file.removeAll(get_user_from_file);
-	//getfile();
+	getfile();
+        get_password();
+        
         
 }
        
 public void Cambiar_Password(String q)
 {
 
-    
+    get_pass_from_file.clear();
+    get_password();
     File file2 = new File("contras.txt");
    
     try{
@@ -400,6 +367,7 @@ public void Cambiar_Password(String q)
 	}
     
     get_pass_from_file.set(posicion_de_la_contra, q);
+    
     try{
 		
 		 FileWriter fw1 = new FileWriter(file2);
@@ -418,7 +386,7 @@ public void Cambiar_Password(String q)
 		
 	}
     get_pass_from_file.clear();
-    getfile();
+    get_password();
     
 }
     public static void main(String[] args)
@@ -426,7 +394,7 @@ public void Cambiar_Password(String q)
      
     
     // Cambiar_Password("tepiso");
-    //CrearUser();
+ //CrearUser();
     //CrearPassword(); 
         //guardador.add("Te Piso");
    
