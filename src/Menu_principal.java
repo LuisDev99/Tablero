@@ -198,6 +198,7 @@ public class Menu_principal extends javax.swing.JFrame {
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
 
         String j = JOptionPane.showInputDialog(null, "Ingrese el segundo usuario:  ");
+        try{
         if(j.length() >0){
         if(test.verificador_de_segundo_usuario(j) == true){
         if(test.verificar_segundo_jugador(j) == true){
@@ -213,6 +214,9 @@ public class Menu_principal extends javax.swing.JFrame {
         }
         }else{
             JOptionPane.showMessageDialog(this, "No ingreso ningun usuario, vuelva a intentarlo!");
+        }
+        }catch(Exception e){
+            
         }
     }//GEN-LAST:event_jButton1MouseClicked
 
