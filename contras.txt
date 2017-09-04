@@ -7,4 +7,4 @@ tusnalit
 tusnalita
 tusnalitas
 tusnalotas
-tusnalgas
+tusnalgas/
