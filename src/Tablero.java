@@ -568,6 +568,7 @@ public class Tablero extends javax.swing.JFrame {
         boolean pos = tb.ubicar_fantasma(1,1);
         if(fantasmas_j1>0)
         {
+            //tugfecita
             if(pos=true)
             {
                arreglo_labels[1][1].setIcon(icon);
