@@ -590,6 +590,7 @@ public class Tablero extends javax.swing.JFrame {
 
                     if(turno==false)
                      {
+                         //tugfa
                          t = false;
                          JOptionPane.showMessageDialog(null, "Es turno del segundo jugador.");
                      }
