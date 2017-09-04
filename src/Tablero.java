@@ -139,6 +139,11 @@ public class Tablero extends javax.swing.JFrame {
                 jLabel3MouseClicked(evt);
             }
         });
+        jLabel3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jLabel3KeyPressed(evt);
+            }
+        });
 
         jLabel6.setBackground(new java.awt.Color(0, 0, 0));
         jLabel6.setOpaque(true);
@@ -187,6 +192,11 @@ public class Tablero extends javax.swing.JFrame {
                 jLabel9MouseClicked(evt);
             }
         });
+        jLabel9.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jLabel9KeyPressed(evt);
+            }
+        });
 
         jLabel12.setBackground(new java.awt.Color(153, 0, 0));
         jLabel12.setOpaque(true);
@@ -201,6 +211,11 @@ public class Tablero extends javax.swing.JFrame {
 
         jLabel14.setBackground(new java.awt.Color(0, 0, 0));
         jLabel14.setOpaque(true);
+        jLabel14.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel14MouseClicked(evt);
+            }
+        });
 
         jLabel13.setBackground(new java.awt.Color(153, 0, 0));
         jLabel13.setOpaque(true);
@@ -220,6 +235,11 @@ public class Tablero extends javax.swing.JFrame {
 
         jLabel15.setBackground(new java.awt.Color(153, 0, 0));
         jLabel15.setOpaque(true);
+        jLabel15.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel15MouseClicked(evt);
+            }
+        });
 
         jLabel18.setBackground(new java.awt.Color(0, 0, 0));
         jLabel18.setOpaque(true);
@@ -509,11 +529,34 @@ public class Tablero extends javax.swing.JFrame {
        }
       else
        {
+            //fantasma_label[0][2]=false;
+            //fantasma_label[2][1]=false;
+            
+            if(t == false && turno==true &&(fantasma_label[1][1]==false||fantasma_label[0][1]==false))           {
+               jLabel2.setIcon(null);
+               t = true;           
+            }
+            else
+            {
+                
+               if(turno==false)
+                {
+                    t = false;
+                    JOptionPane.showMessageDialog(null, "Es turno del segundo jugador.");
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(null, "No hay posiciones disponibles");
+                }
+            }
+          
+           
+           /*
            if(fantasmas_j2 == 7)
            JOptionPane.showMessageDialog(this, "Ahora le toca  el jugador poner fantasmas");
            else 
            JOptionPane.showMessageDialog(this, "No puedes colocar fantasmas aqui, le toca al jugador 2");    
-           /*
+           
            aquel pijaso de codigo de mover fantasma
            */ 
        }
@@ -523,10 +566,48 @@ public class Tablero extends javax.swing.JFrame {
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
        posicionamiento_de_labels_en_arreglo();
         boolean pos = tb.ubicar_fantasma(1,1);
-        if(pos=true)
-           arreglo_labels[1][1].setIcon(icon);
+        if(fantasmas_j1>0)
+        {
+            if(pos=true)
+            {
+               arreglo_labels[1][1].setIcon(icon);
+               fantasma_label[1][1]=true;
+            }
+        }
         else
-            JOptionPane.showMessageDialog(this, "No puede hacer eso");
+        {
+            if(fantasma_label[1][1]==true)
+           {
+                fantasma_label[2][1]=false;
+                if(t == false && turno==true &&(fantasma_label[2][1]==false||fantasma_label[1][2]==false))           
+                 {
+                    jLabel8.setIcon(null);
+                    t = true;      
+                    fantasma_label[1][1]=false;
+                 }
+                 else
+                 {
+
+                    if(turno==false)
+                     {
+                         t = false;
+                         JOptionPane.showMessageDialog(null, "Es turno del segundo jugador.");
+                     }
+                     else
+                     {
+                         JOptionPane.showMessageDialog(null, "No hay posiciones disponibles");
+                     }
+                 }
+                /*
+                if(fantasmas_j2 == 7)
+                JOptionPane.showMessageDialog(this, "Ahora le toca  el jugador poner fantasmas");
+                else 
+                JOptionPane.showMessageDialog(this, "No puedes colocar fantasmas aqui, le toca al jugador 2");
+                */
+            }
+           else
+               JOptionPane.showMessageDialog(null, "Actualmente no hay ningun fantasma en esta posicion");
+        }
         
     }//GEN-LAST:event_jLabel8MouseClicked
 
@@ -574,10 +655,30 @@ public class Tablero extends javax.swing.JFrame {
        }
       else
        {
+            if(t == false && turno==true &&(fantasma_label[0][1]==false||fantasma_label[1][2]==false||fantasma_label[0][3]==false))           
+            {
+               jLabel3.setIcon(null);
+               t = true;           
+            }
+            else
+            {
+                
+               if(turno==false)
+                {
+                    t = false;
+                    JOptionPane.showMessageDialog(null, "Es turno del segundo jugador.");
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(null, "No hay posiciones disponibles");
+                }
+            }
+           /*
           if(fantasmas_j2 == 7)
            JOptionPane.showMessageDialog(this, "Ahora le toca  el jugador poner fantasmas");
            else 
            JOptionPane.showMessageDialog(this, "No puedes colocar fantasmas aqui, le toca al jugador 2");
+           */
        }
     }//GEN-LAST:event_jLabel3MouseClicked
 
@@ -591,7 +692,7 @@ public class Tablero extends javax.swing.JFrame {
         if(pos==true){
            arreglo_labels[0][3].setIcon(icon);
           fantasmas_j1--;
-            
+          fantasma_label[0][3]=true;  
         }
         else{
             JOptionPane.showMessageDialog(this, "No puedes poner el fantasma ahi");
@@ -600,10 +701,30 @@ public class Tablero extends javax.swing.JFrame {
        }
       else
        {
+           if(t == false && turno==true &&(fantasma_label[0][2]==false||fantasma_label[0][4]==false||fantasma_label[1][3]==false))           
+            {
+               jLabel4.setIcon(null);
+               t = true;           
+            }
+            else
+            {
+                
+               if(turno==false)
+                {
+                    t = false;
+                    JOptionPane.showMessageDialog(null, "Es turno del segundo jugador.");
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(null, "No hay posiciones disponibles");
+                }
+            }
+           /*
           if(fantasmas_j2 == 7)
            JOptionPane.showMessageDialog(this, "Ahora le toca  el jugador poner fantasmas");
            else 
            JOptionPane.showMessageDialog(this, "No puedes colocar fantasmas aqui, le toca al jugador 2");
+           */
        }
     }//GEN-LAST:event_jLabel4MouseClicked
 
@@ -617,7 +738,7 @@ public class Tablero extends javax.swing.JFrame {
         if(pos==true){
            arreglo_labels[0][4].setIcon(icon);
           fantasmas_j1--;
-            
+          fantasma_label[0][4]=true;
         }
         else{
             JOptionPane.showMessageDialog(this, "No puedes poner el fantasma ahi");
@@ -626,10 +747,31 @@ public class Tablero extends javax.swing.JFrame {
        }
       else
        {
+           
+           if(t == false && turno==true &&(fantasma_label[0][3]==false||fantasma_label[1][4]==false))           
+            {
+               jLabel5.setIcon(null);
+               t = true;           
+            }
+            else
+            {
+                
+               if(turno==false)
+                {
+                    t = false;
+                    JOptionPane.showMessageDialog(null, "Es turno del segundo jugador.");
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(null, "No hay posiciones disponibles");
+                }
+            }
+           /*
          if(fantasmas_j2 == 7)
            JOptionPane.showMessageDialog(this, "Ahora le toca  el jugador poner fantasmas");
            else 
            JOptionPane.showMessageDialog(this, "No puedes colocar fantasmas aqui, le toca al jugador 2");
+           */
        }
     }//GEN-LAST:event_jLabel5MouseClicked
 
@@ -728,7 +870,7 @@ if(fantasmas_j2 == 7)
         if(pos==true){
            arreglo_labels[1][2].setIcon(icon);
            fantasmas_j1--;
-            
+           fantasma_label[1][2]=true;
         }
         else{
             JOptionPane.showMessageDialog(this, "No puedes poner el fantasma ahi");
@@ -737,10 +879,37 @@ if(fantasmas_j2 == 7)
        }
       else
        {
-           if(fantasmas_j2 == 7)
-           JOptionPane.showMessageDialog(this, "Ahora le toca  el jugador poner fantasmas");
-           else 
-           JOptionPane.showMessageDialog(this, "No puedes colocar fantasmas aqui, le toca al jugador 2"); 
+           if(fantasma_label[1][2]==true)
+           {
+                fantasma_label[2][2]=false;
+                if(t == false && turno==true &&(fantasma_label[1][3]==false||fantasma_label[1][1]==false||fantasma_label[2][2]==false))           
+                 {
+                    jLabel9.setIcon(null);
+                    t = true;      
+                    fantasma_label[1][3]=false;
+                 }
+                 else
+                 {
+
+                    if(turno==false)
+                     {
+                         t = false;
+                         JOptionPane.showMessageDialog(null, "Es turno del segundo jugador.");
+                     }
+                     else
+                     {
+                         JOptionPane.showMessageDialog(null, "No hay posiciones disponibles");
+                     }
+                 }
+                /*
+                if(fantasmas_j2 == 7)
+                JOptionPane.showMessageDialog(this, "Ahora le toca  el jugador poner fantasmas");
+                else 
+                JOptionPane.showMessageDialog(this, "No puedes colocar fantasmas aqui, le toca al jugador 2");
+                */
+            }
+           else
+               JOptionPane.showMessageDialog(null, "Actualmente no hay ningun fantasma en esta posicion");
        }
     }//GEN-LAST:event_jLabel9MouseClicked
 
@@ -752,7 +921,7 @@ if(fantasmas_j2 == 7)
         if(pos==true){
            arreglo_labels[1][3].setIcon(icon);
            fantasmas_j1--;
-            
+           fantasma_label[1][3]=true;
         }
         else{
             JOptionPane.showMessageDialog(this, "No puedes poner el fantasma ahi");
@@ -761,11 +930,39 @@ if(fantasmas_j2 == 7)
        }
       else
        {
-           if(fantasmas_j2 == 7)
-           JOptionPane.showMessageDialog(this, "Ahora le toca  el jugador poner fantasmas");
-           else 
-           JOptionPane.showMessageDialog(this, "No puedes colocar fantasmas aqui, le toca al jugador 2");
-       }
+           if(fantasma_label[1][3]==true)
+           {
+                fantasma_label[2][3]=false;
+                if(t == false && turno==true &&(fantasma_label[1][4]==false||fantasma_label[1][2]==false||fantasma_label[2][3]==false))           
+                 {
+                    jLabel10.setIcon(null);
+                    t = true;      
+                    fantasma_label[1][3]=false;
+                 }
+                 else
+                 {
+
+                    if(turno==false)
+                     {
+                         t = false;
+                         JOptionPane.showMessageDialog(null, "Es turno del segundo jugador.");
+                     }
+                     else
+                     {
+                         JOptionPane.showMessageDialog(null, "No hay posiciones disponibles");
+                     }
+                 }
+                /*
+                if(fantasmas_j2 == 7)
+                JOptionPane.showMessageDialog(this, "Ahora le toca  el jugador poner fantasmas");
+                else 
+                JOptionPane.showMessageDialog(this, "No puedes colocar fantasmas aqui, le toca al jugador 2");
+                */
+            }
+           else
+               JOptionPane.showMessageDialog(null, "Actualmente no hay ningun fantasma en esta posicion");
+        }
+               
     }//GEN-LAST:event_jLabel10MouseClicked
 
     private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
@@ -776,6 +973,7 @@ if(fantasmas_j2 == 7)
         if(pos==true){
            arreglo_labels[1][4].setIcon(icon);
             fantasmas_j1--;
+            fantasma_label[1][4]=true;
         }
         else{
             JOptionPane.showMessageDialog(this, "No puedes poner el fantasma ahi");
@@ -784,58 +982,32 @@ if(fantasmas_j2 == 7)
        }
       else
        {
+           fantasma_label[2][4]=false;
+           if(t == false && turno==true &&(fantasma_label[2][4]==false||fantasma_label[1][3]==false))           
+            {
+               jLabel11.setIcon(null);
+               t = true;           
+            }
+            else
+            {
+                
+               if(turno==false)
+                {
+                    t = false;
+                    JOptionPane.showMessageDialog(null, "Es turno del primer jugador.");
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(null, "No hay posiciones disponibles");
+                }
+            }
            /*
            if(fantasmas_j2 == 7)
            JOptionPane.showMessageDialog(this, "Ahora le toca  el jugador poner fantasmas");
            else 
            JOptionPane.showMessageDialog(this, "No puedes colocar fantasmas aqui, le toca al jugador 2");
            */
-             if(fantasmas_j1==0 && fantasmas_j2 >0)
-       {
-
-        boolean pos = tb.ubicar_fantasma(4,1);
-        if(pos==true){
-           arreglo_labels[4][1].setIcon(icon);
-           fantasmas_j2--;
-           fantasma_label[4][1]=true;
-          // arreglo_labels[4][1].setBackground(Color.red);
-        }
-        else{
-            JOptionPane.showMessageDialog(this, "No puedes poner el fantasma ahi");
-        }
-       
-       }
-      else
-       {
-           
-           if(fantasma_label[4][1]==true)
-           {
-                      if(t == false && turno==true){
-               jLabel11.setIcon(null);
-               fantasma_label[4][1]=false;
-               t = true;
-               
-               
-           }else{
-               //jLabel34.setIcon(icon);
-               t = false;
-               JOptionPane.showMessageDialog(null, "Es turno del segundo jugador.");
-                      }
-           //JOptionPane.showMessageDialog(this, "El jugador 1 no ha terminado de posicionar los fantasmas");
-           /*
-           aquel pijaso de codigo de mover fantasma
-           */ 
-           }
-           else
-           {
-               if(t==true && fantasma_label[4][1]==false )
-               {
-                   jLabel11.setIcon(icon);
-               }
-               else
-               JOptionPane.showMessageDialog(null, "Actualmente no hay ninguno fantasma.");
-           }
-       }
+         
        }
     }//GEN-LAST:event_jLabel11MouseClicked
 
@@ -858,16 +1030,16 @@ if(fantasmas_j2 == 7)
        }
       else
        {
-                      if(t == false && turno==false){
+            if(t == false && turno==false){
                jLabel26.setIcon(null);
-               t = true;
-               
-               
-           }else{
-               jLabel34.setIcon(icon);
+               t = true;           
+            }
+            else
+            {
+               //jLabel34.setIcon(icon);
                t = false;
                JOptionPane.showMessageDialog(null, "Es turno del primer jugador.");
-                      }
+            }
            //JOptionPane.showMessageDialog(this, "El jugador 1 no ha terminado de posicionar los fantasmas");
            /*
            aquel pijaso de codigo de mover fantasma
@@ -1070,7 +1242,24 @@ if(fantasmas_j2 == 7)
     }//GEN-LAST:event_jLabel35MouseClicked
 
     private void jLabel16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseClicked
-        // TODO add your handling code here:
+        if(fantasmas_j1 == 0 && fantasmas_j2 == 0 && turno== true)
+       {
+              if(/*fantasma_label[4][4] == false || fantasma_label[] &&*/ t == false)
+              { //Si por lo menos hay una posicion en el arreglo false que se quite y poner una variable t paraa poder mover el icono
+               jLabel16.setIcon(null);
+               t = true;
+               //fantasma_label[1][4] = false;
+               
+               }
+              else /*if( t == true && thislabel = false)*/
+              {
+                  jLabel16.setIcon(icon);
+                  t = false;
+                  turno = false;
+                    //}else
+                    //  JOptionPane.showMessageDialog(this, "No hay ninguna posicion disponible para mover el fanstama");
+              }
+        }
     }//GEN-LAST:event_jLabel16MouseClicked
 
     private void jLabel21MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel21MouseClicked
@@ -1081,19 +1270,23 @@ if(fantasmas_j2 == 7)
     private void jLabel20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel20MouseClicked
         // TODO add your handling code here:
         
-        if(fantasmas_j1 == 0 && fantasmas_j2 == 0 && turno== false){
-              if(/*fantasma_label[4][4] == false || fantasma_label[] &&*/ t == false){ //Si por lo menos hay una posicion en el arreglo false que se quite y poner una variable t paraa poder mover el icono
+        if(fantasmas_j1 == 0 && fantasmas_j2 == 0 && turno== false)
+        {
+            if(/*fantasma_label[4][4] == false || fantasma_label[] &&*/ t == false)//Si por lo menos hay una posicion en el arreglo false que se quite y poner una variable t paraa poder mover el icono
+            {                
                jLabel20.setIcon(null);
                t = true;
                fantasma_label[0][0] = false;
                
-           }else /*if( t == true && thislabel = false)*/{
+            }
+            else /*if( t == true &&  fantasma_label[0][0]== false )*/
+            {
                jLabel20.setIcon(icon);
-            t = false;
-            turno = true;
+               t = false;
+               turno = true;
            //}else
              //  JOptionPane.showMessageDialog(this, "No hay ninguna posicion disponible para mover el fanstama");
-        }
+            }
         }
         
         else
@@ -1103,25 +1296,79 @@ if(fantasmas_j2 == 7)
     }//GEN-LAST:event_jLabel20MouseClicked
 
     private void jLabel17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel17MouseClicked
-       if(fantasmas_j1 == 0 && fantasmas_j2 == 0 && turno== true){
-              if(/*fantasma_label[4][4] == false || fantasma_label[] &&*/ t == false){ //Si por lo menos hay una posicion en el arreglo false que se quite y poner una variable t paraa poder mover el icono
+       if(fantasmas_j1 == 0 && fantasmas_j2 == 0 && turno== true)
+       {
+              if(/*fantasma_label[4][4] == false || fantasma_label[] &&*/ t == false)
+              { //Si por lo menos hay una posicion en el arreglo false que se quite y poner una variable t paraa poder mover el icono
                jLabel17.setIcon(null);
                t = true;
                fantasma_label[1][4] = false;
                
-           }else /*if( t == true && thislabel = false)*/{
-               jLabel17.setIcon(icon);
-            t = false;
-            turno = false;
-           //}else
-             //  JOptionPane.showMessageDialog(this, "No hay ninguna posicion disponible para mover el fanstama");
-        }
+               }
+              else /*if( t == true && thislabel = false)*/
+              {
+                  jLabel17.setIcon(icon);
+                  t = false;
+                  turno = false;
+                    //}else
+                    //  JOptionPane.showMessageDialog(this, "No hay ninguna posicion disponible para mover el fanstama");
+              }
         }
         else
         {
             
         }
     }//GEN-LAST:event_jLabel17MouseClicked
+
+    private void jLabel3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jLabel3KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel3KeyPressed
+
+    private void jLabel9KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jLabel9KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel9KeyPressed
+
+    private void jLabel15MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel15MouseClicked
+        if(fantasmas_j1 == 0 && fantasmas_j2 == 0 && turno== true)
+       {
+              if(/*fantasma_label[4][4] == false || fantasma_label[] &&*/ t == false)
+              { //Si por lo menos hay una posicion en el arreglo false que se quite y poner una variable t paraa poder mover el icono
+               jLabel15.setIcon(null);
+               t = true;
+               //fantasma_label[1][4] = false;
+               
+               }
+              else /*if( t == true && thislabel = false)*/
+              {
+                  jLabel15.setIcon(icon);
+                  t = false;
+                  turno = false;
+                    //}else
+                    //  JOptionPane.showMessageDialog(this, "No hay ninguna posicion disponible para mover el fanstama");
+              }
+        }
+    }//GEN-LAST:event_jLabel15MouseClicked
+
+    private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
+        if(fantasmas_j1 == 0 && fantasmas_j2 == 0 && turno== true)
+       {
+              if(/*fantasma_label[4][4] == false || fantasma_label[] &&*/ t == false)
+              { //Si por lo menos hay una posicion en el arreglo false que se quite y poner una variable t paraa poder mover el icono
+               jLabel14.setIcon(null);
+               t = true;
+               //fantasma_label[1][4] = false;
+               
+               }
+              else /*if( t == true && thislabel = false)*/
+              {
+                  jLabel14.setIcon(icon);
+                  t = false;
+                  turno = false;
+                    //}else
+                    //  JOptionPane.showMessageDialog(this, "No hay ninguna posicion disponible para mover el fanstama");
+              }
+        }
+    }//GEN-LAST:event_jLabel14MouseClicked
     //Funcion booleana(posicion del fantasma que queremos mover){
   //if(arreglo1 && arreglo2)
     //if(
