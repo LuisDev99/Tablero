@@ -1,3 +1,4 @@
+tus
 tusn
 tusna
 tusnal
@@ -7,4 +8,3 @@ tusnalita
 tusnalitas
 tusnalotas
 tusnalgas
-p
