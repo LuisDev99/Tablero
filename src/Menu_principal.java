@@ -39,7 +39,9 @@ public class Menu_principal extends javax.swing.JFrame {
         Reporte = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         jPasswordField1.setText("jPasswordField1");
 
@@ -50,6 +52,7 @@ public class Menu_principal extends javax.swing.JFrame {
                 formWindowClosing(evt);
             }
         });
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton1.setText("Jugar Ghost");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -62,6 +65,7 @@ public class Menu_principal extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 170, 116, -1));
 
         Configuracion.setText("Configuracion");
         Configuracion.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -74,6 +78,7 @@ public class Menu_principal extends javax.swing.JFrame {
                 ConfiguracionActionPerformed(evt);
             }
         });
+        getContentPane().add(Configuracion, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 210, 116, -1));
 
         Reporte.setText("Reporte");
         Reporte.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -81,6 +86,7 @@ public class Menu_principal extends javax.swing.JFrame {
                 Llamar_Reporte(evt);
             }
         });
+        getContentPane().add(Reporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 250, 116, -1));
 
         jButton3.setText("Mi perfil");
         jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -88,6 +94,7 @@ public class Menu_principal extends javax.swing.JFrame {
                 Llamar_perfil(evt);
             }
         });
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 290, 116, -1));
 
         jButton4.setText("Cerrar Sesion");
         jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -98,42 +105,18 @@ public class Menu_principal extends javax.swing.JFrame {
                 jButton4MouseEntered(evt);
             }
         });
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 330, 116, -1));
 
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fnatasminesnew.gif"))); // NOI18N
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 80, -1, 440));
+
+        jLabel1.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 2, 48)); // NOI18N
         jLabel1.setText("Menu Principal");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 20, 290, 120));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(149, 149, 149)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Configuracion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Reporte, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel1))
-                .addContainerGap(173, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
-                .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(Configuracion)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Reporte)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton4)
-                .addContainerGap(40, Short.MAX_VALUE))
-        );
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/menu principal foto.png"))); // NOI18N
+        jLabel2.setText("jLabel2");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 780, 530));
 
         pack();
         setLocationRelativeTo(null);
@@ -196,7 +179,7 @@ public class Menu_principal extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowClosing
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-
+try{
         String j = JOptionPane.showInputDialog(null, "Ingrese el segundo usuario:  ");
         if(j.length() >0){
         if(test.verificador_de_segundo_usuario(j) == true){
@@ -214,6 +197,9 @@ public class Menu_principal extends javax.swing.JFrame {
         }else{
             JOptionPane.showMessageDialog(this, "No ingreso ningun usuario, vuelva a intentarlo!");
         }
+}catch(Exception e){
+    
+}
     }//GEN-LAST:event_jButton1MouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -267,6 +253,8 @@ public class Menu_principal extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JPopupMenu jPopupMenu2;
