@@ -1474,7 +1474,7 @@ if(fantasmas_j2 == 7)
     private void jLabel16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseClicked
         if(fantasmas_j1 == 0 && fantasmas_j2 == 0 && turno== true)
        {
-                Boolean mover_fants = mover_fantasmitas(2,3);
+                Boolean mover_fants = mover_fantasmitas(2,3);//
                 Boolean pos_disponibles = identificar_pos_disponibles(2,3);
               if(t == false && mover_fants==true)
                { //Si por lo menos hay una posicion en el arreglo false que se quite y poner una variable t paraa poder mover el icono
