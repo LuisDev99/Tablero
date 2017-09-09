@@ -134,7 +134,7 @@ public class Tablero extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setBackground(new java.awt.Color(153, 0, 0));
+        jLabel3.setBackground(java.awt.Color.red);
         jLabel3.setOpaque(true);
         jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -155,7 +155,7 @@ public class Tablero extends javax.swing.JFrame {
             }
         });
 
-        jLabel5.setBackground(new java.awt.Color(153, 0, 0));
+        jLabel5.setBackground(java.awt.Color.red);
         jLabel5.setOpaque(true);
         jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -163,7 +163,7 @@ public class Tablero extends javax.swing.JFrame {
             }
         });
 
-        jLabel8.setBackground(new java.awt.Color(153, 0, 0));
+        jLabel8.setBackground(java.awt.Color.red);
         jLabel8.setOpaque(true);
         jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -235,7 +235,7 @@ public class Tablero extends javax.swing.JFrame {
             }
         });
 
-        jLabel15.setBackground(new java.awt.Color(153, 0, 0));
+        jLabel15.setBackground(java.awt.Color.red);
         jLabel15.setOpaque(true);
         jLabel15.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -246,7 +246,7 @@ public class Tablero extends javax.swing.JFrame {
         jLabel18.setBackground(new java.awt.Color(0, 0, 0));
         jLabel18.setOpaque(true);
 
-        jLabel17.setBackground(new java.awt.Color(153, 0, 0));
+        jLabel17.setBackground(java.awt.Color.red);
         jLabel17.setOpaque(true);
         jLabel17.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -257,7 +257,7 @@ public class Tablero extends javax.swing.JFrame {
             }
         });
 
-        jLabel20.setBackground(new java.awt.Color(153, 0, 0));
+        jLabel20.setBackground(java.awt.Color.red);
         jLabel20.setOpaque(true);
         jLabel20.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -273,7 +273,7 @@ public class Tablero extends javax.swing.JFrame {
             }
         });
 
-        jLabel22.setBackground(new java.awt.Color(153, 0, 0));
+        jLabel22.setBackground(java.awt.Color.red);
         jLabel22.setOpaque(true);
         jLabel22.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -327,7 +327,7 @@ public class Tablero extends javax.swing.JFrame {
             }
         });
 
-        jLabel27.setBackground(new java.awt.Color(153, 0, 0));
+        jLabel27.setBackground(java.awt.Color.red);
         jLabel27.setOpaque(true);
         jLabel27.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -338,7 +338,7 @@ public class Tablero extends javax.swing.JFrame {
         jLabel30.setBackground(new java.awt.Color(0, 0, 0));
         jLabel30.setOpaque(true);
 
-        jLabel29.setBackground(new java.awt.Color(153, 0, 0));
+        jLabel29.setBackground(java.awt.Color.red);
         jLabel29.setOpaque(true);
         jLabel29.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -346,7 +346,7 @@ public class Tablero extends javax.swing.JFrame {
             }
         });
 
-        jLabel32.setBackground(new java.awt.Color(153, 0, 0));
+        jLabel32.setBackground(java.awt.Color.red);
         jLabel32.setOpaque(true);
         jLabel32.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -362,7 +362,7 @@ public class Tablero extends javax.swing.JFrame {
             }
         });
 
-        jLabel34.setBackground(new java.awt.Color(153, 0, 0));
+        jLabel34.setBackground(java.awt.Color.red);
         jLabel34.setOpaque(true);
         jLabel34.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1001,6 +1001,7 @@ if(fantasmas_j2 == 7)
                             turno = false;
                             t =false;
                             falsificar_pos(1,3);
+                            cambiar_bg_inicial(1,3);
                         }
                         else
                         {
@@ -1041,10 +1042,7 @@ if(fantasmas_j2 == 7)
                 mover_fantasma[2][4]=false;
                 mover_fantasma[2][5]=false;
             }
-            else
-            {
-                JOptionPane.showMessageDialog(this, "No puedes poner el fantasma ahi");
-            }
+          
       
        }
       else
@@ -1060,6 +1058,13 @@ if(fantasmas_j2 == 7)
                mover_fantasma[1][4]=true;
                if(pos_disponibles==false)
                    JOptionPane.showMessageDialog(this, "No hay posiciones disponibles. ");
+               
+               if(arreglo_labels[1][4].getBackground().equals(Color.RED))
+                    {
+                        color=false;
+                    }
+                    else
+                        color=true;
             }
            
             else
@@ -1488,6 +1493,7 @@ if(fantasmas_j2 == 7)
                         fantasma_label[2][3]=true;        
                         falsificar_pos(2,3);
                         cambiar_backg(2,3);
+                        cambiar_bg_inicial(2,3);
                     }
                     else
                     {
@@ -1613,6 +1619,7 @@ if(fantasmas_j2 == 7)
                         fantasma_label[2][4]=true;
                         falsificar_pos(2,4);   
                         cambiar_backg(2,4);
+                        cambiar_bg_inicial(2,4);
                         
                     }
                     else
@@ -1999,7 +2006,7 @@ public void Prueba(){
 
  public void cambiar_backg(int fila, int columna)
  {
-     if(color==true)
+     if(color==false)
      {
        arreglo_labels[fila][columna].setBackground(Color.red);
        if(fila-1>=0)       
@@ -2022,6 +2029,33 @@ public void Prueba(){
            arreglo_labels[fila][columna+1].setBackground(Color.RED);
        if(columna-1>0)
            arreglo_labels[fila][columna-1].setBackground(Color.RED);
+     }
+ }
+ public void cambiar_bg_inicial(int fila, int columna)
+ {
+      if(color==true)
+     {
+       arreglo_labels[fila][columna].setBackground(Color.red);
+       if(fila-1>=0)       
+           cambiar_backg(fila-1,columna);
+       if(fila+1<=5)
+           cambiar_backg(fila+1,columna);
+       if(columna+1<5)
+           cambiar_backg(fila,columna+1);
+       if(columna-1>0)
+           cambiar_backg(fila,columna-1);
+     }
+     else
+     {
+       arreglo_labels[fila][columna].setBackground(Color.BLACK);
+       if(fila-1>=0)       
+           cambiar_backg(fila-1,columna);
+       if(fila+1<=5)
+           cambiar_backg(fila+1,columna);
+       if(columna+1<5)
+           cambiar_backg(fila,columna+1);
+       if(columna-1>0)
+           cambiar_backg(fila,columna-1);
      }
  }
 }
