@@ -8,18 +8,20 @@ import javax.swing.border.Border;
 
 public class Tablero extends javax.swing.JFrame {
    
-   public Boolean[][] fantasma_label = new Boolean[6][6]; 
-   public static JLabel[][] arreglo_labels = new JLabel[6][6];
-   Boolean poner_fantasmasj1 = true;
-   Boolean poner_fantasmasj2 = true;
-   public int fantasmas_j1 = 7;
-   public int fantasmas_j2 = 8;
+   public Boolean[][] fantasma_label = new Boolean[6][6]; //arreglo usado para verificar si el label tiene o no un fantasma(verdadero=si hay, false= no hay)
+   public Boolean[][] mover_fantasma = new Boolean[6][6]; //arreglo usado para verificar el usuario quiere mover un fantasma
+   public static JLabel[][] arreglo_labels = new JLabel[6][6];//arreglo grafico de labels
+   //Boolean poner_fantasmasj1 = true;
+   //Boolean poner_fantasmasj2 = true;
+   public int fantasmas_j1 = 7; //numero de fantasmas disponibles del jugador 1
+   public int fantasmas_j2 = 8; //numero de fantasmas disponibles del jugador 2
    UltimateTablero tb = new UltimateTablero();
-   boolean t = false; 
-   boolean turno = true;
+   boolean t = false; //variable usada para verificar si quiere o no mover un fantasma(true-si quiere, false-no quiere)
+   boolean turno = true; //variable que determina el turno de los jugadores (true- jugador1, false-jugador2)
    ImageIcon icon = new ImageIcon(getClass().getResource("fantasmas-halloween-gifs-156x130[4].gif"));
+   boolean color=true;
    
-   public static boolean v = false;
+   //public static boolean v = false;
     
     
     public Tablero() {
@@ -177,7 +179,7 @@ public class Tablero extends javax.swing.JFrame {
             }
         });
 
-        jLabel10.setBackground(new java.awt.Color(153, 0, 0));
+        jLabel10.setBackground(java.awt.Color.red);
         jLabel10.setOpaque(true);
         jLabel10.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -250,6 +252,9 @@ public class Tablero extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel17MouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel17MouseEntered(evt);
+            }
         });
 
         jLabel20.setBackground(new java.awt.Color(153, 0, 0));
@@ -270,6 +275,11 @@ public class Tablero extends javax.swing.JFrame {
 
         jLabel22.setBackground(new java.awt.Color(153, 0, 0));
         jLabel22.setOpaque(true);
+        jLabel22.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel22MouseClicked(evt);
+            }
+        });
 
         jLabel21.setBackground(new java.awt.Color(0, 0, 0));
         jLabel21.setOpaque(true);
@@ -284,6 +294,11 @@ public class Tablero extends javax.swing.JFrame {
 
         jLabel23.setBackground(new java.awt.Color(0, 0, 0));
         jLabel23.setOpaque(true);
+        jLabel23.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel23MouseClicked(evt);
+            }
+        });
 
         jLabel26.setBackground(new java.awt.Color(0, 0, 0));
         jLabel26.setOpaque(true);
@@ -306,6 +321,9 @@ public class Tablero extends javax.swing.JFrame {
         jLabel28.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel28MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel28MouseEntered(evt);
             }
         });
 
@@ -532,16 +550,17 @@ public class Tablero extends javax.swing.JFrame {
             //fantasma_label[0][2]=false;
             //fantasma_label[2][1]=false;
             
-            if(t == false && turno==true &&(fantasma_label[1][1]==false||fantasma_label[0][1]==false))           {
+            if(t == false && turno==true &&(fantasma_label[1][1]==false||fantasma_label[0][2]==false))           {
                jLabel2.setIcon(null);
                t = true;           
+               fantasma_label[0][1]=false;
             }
             else
             {
                 
                if(turno==false)
                 {
-                    t = false;
+                    
                     JOptionPane.showMessageDialog(null, "Es turno del segundo jugador.");
                 }
                 else
@@ -564,7 +583,7 @@ public class Tablero extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel2MouseClicked
 
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
-       posicionamiento_de_labels_en_arreglo();
+        posicionamiento_de_labels_en_arreglo();
         boolean pos = tb.ubicar_fantasma(1,1);
         if(fantasmas_j1>0)
         {
@@ -573,14 +592,13 @@ public class Tablero extends javax.swing.JFrame {
             {
                arreglo_labels[1][1].setIcon(icon);
                fantasma_label[1][1]=true;
+               fantasma_label[2][1]=false;
+               mover_fantasma[2][1]=false;
             }
         }
         else
         {
-            if(fantasma_label[1][1]==true)
-           {
-                fantasma_label[2][1]=false;
-                if(t == false && turno==true &&(fantasma_label[2][1]==false||fantasma_label[1][2]==false))           
+           if(t == false && turno==true &&(fantasma_label[2][1]==false||fantasma_label[1][2]==false||fantasma_label[0][1]==false))           
                  {
                     jLabel8.setIcon(null);
                     t = true;      
@@ -589,16 +607,25 @@ public class Tablero extends javax.swing.JFrame {
                  else
                  {
 
-                    if(turno==false)
-                     {
-                         //tugfa
-                         t = false;
-                         JOptionPane.showMessageDialog(null, "Es turno del segundo jugador.");
-                     }
-                     else
-                     {
-                         JOptionPane.showMessageDialog(null, "No hay posiciones disponibles");
-                     }
+                        if(t == true && turno==true &&(fantasma_label[0][1]==false||fantasma_label[1][2]==false)||fantasma_label[2][1]==false) 
+                        {
+                            arreglo_labels[1][1].setIcon(icon);
+                            fantasma_label[1][1]=true;
+                            turno = false;
+                            t =false;
+                        }
+                        else
+                        {
+                            if(turno==false)
+                             {
+                                
+                                 JOptionPane.showMessageDialog(null, "Es turno del segundo jugador.");
+                             }
+                             else
+                             {
+                                 JOptionPane.showMessageDialog(null, "No hay posiciones disponibles");
+                             }
+                        }
                  }
                 /*
                 if(fantasmas_j2 == 7)
@@ -606,9 +633,7 @@ public class Tablero extends javax.swing.JFrame {
                 else 
                 JOptionPane.showMessageDialog(this, "No puedes colocar fantasmas aqui, le toca al jugador 2");
                 */
-            }
-           else
-               JOptionPane.showMessageDialog(null, "Actualmente no hay ningun fantasma en esta posicion");
+            
         }
         
     }//GEN-LAST:event_jLabel8MouseClicked
@@ -660,14 +685,15 @@ public class Tablero extends javax.swing.JFrame {
             if(t == false && turno==true &&(fantasma_label[0][1]==false||fantasma_label[1][2]==false||fantasma_label[0][3]==false))           
             {
                jLabel3.setIcon(null);
-               t = true;           
+               t = true;    
+               fantasma_label[0][2]=false;
             }
             else
             {
                 
                if(turno==false)
                 {
-                    t = false;
+                    
                     JOptionPane.showMessageDialog(null, "Es turno del segundo jugador.");
                 }
                 else
@@ -695,6 +721,7 @@ public class Tablero extends javax.swing.JFrame {
            arreglo_labels[0][3].setIcon(icon);
           fantasmas_j1--;
           fantasma_label[0][3]=true;  
+          mover_fantasma[0][3]=false;
         }
         else{
             JOptionPane.showMessageDialog(this, "No puedes poner el fantasma ahi");
@@ -706,14 +733,15 @@ public class Tablero extends javax.swing.JFrame {
            if(t == false && turno==true &&(fantasma_label[0][2]==false||fantasma_label[0][4]==false||fantasma_label[1][3]==false))           
             {
                jLabel4.setIcon(null);
-               t = true;           
-            }
+               t = true;      
+               fantasma_label[0][3]=false;
+               mover_fantasma[0][3]=true;            }
             else
             {
                 
                if(turno==false)
                 {
-                    t = false;
+                  
                     JOptionPane.showMessageDialog(null, "Es turno del segundo jugador.");
                 }
                 else
@@ -741,6 +769,7 @@ public class Tablero extends javax.swing.JFrame {
            arreglo_labels[0][4].setIcon(icon);
           fantasmas_j1--;
           fantasma_label[0][4]=true;
+          mover_fantasma[0][4]=false;
         }
         else{
             JOptionPane.showMessageDialog(this, "No puedes poner el fantasma ahi");
@@ -750,22 +779,23 @@ public class Tablero extends javax.swing.JFrame {
       else
        {
            
-           if(t == false && turno==true &&(fantasma_label[0][3]==false||fantasma_label[1][4]==false))           
+            if(t == false && turno==true &&(fantasma_label[1][4]==false||fantasma_label[0][3]==false))           
             {
                jLabel5.setIcon(null);
                t = true;           
+               fantasma_label[0][4]=false;
             }
             else
             {
                 
                if(turno==false)
                 {
-                    t = false;
+                   
                     JOptionPane.showMessageDialog(null, "Es turno del segundo jugador.");
                 }
                 else
                 {
-                    JOptionPane.showMessageDialog(null, "No hay posiciones disponibles");
+                    JOptionPane.showMessageDialog(null, "No hay posiciones disponibles"+" "+t);
                 }
             }
            /*
@@ -873,6 +903,9 @@ if(fantasmas_j2 == 7)
            arreglo_labels[1][2].setIcon(icon);
            fantasmas_j1--;
            fantasma_label[1][2]=true;
+           fantasma_label[2][2]=false;
+           mover_fantasma[1][2]=false;
+           mover_fantasma[2][2]=false;
         }
         else{
             JOptionPane.showMessageDialog(this, "No puedes poner el fantasma ahi");
@@ -881,27 +914,35 @@ if(fantasmas_j2 == 7)
        }
       else
        {
-           if(fantasma_label[1][2]==true)
-           {
-                fantasma_label[2][2]=false;
-                if(t == false && turno==true &&(fantasma_label[1][3]==false||fantasma_label[1][1]==false||fantasma_label[2][2]==false))           
+           
+                if(t == false && turno==true &&(fantasma_label[2][2]==false||fantasma_label[1][3]==false||fantasma_label[1][1]==false||fantasma_label[0][2]==false))          
                  {
                     jLabel9.setIcon(null);
                     t = true;      
-                    fantasma_label[1][3]=false;
+                    fantasma_label[1][2]=false;
                  }
                  else
                  {
 
-                    if(turno==false)
-                     {
-                         t = false;
-                         JOptionPane.showMessageDialog(null, "Es turno del segundo jugador.");
-                     }
-                     else
-                     {
-                         JOptionPane.showMessageDialog(null, "No hay posiciones disponibles");
-                     }
+                        if(t == true && turno==true &&(fantasma_label[0][2]==false||fantasma_label[1][3]==false||fantasma_label[1][1]==false||fantasma_label[2][2]==false))
+                        {
+                            arreglo_labels[1][2].setIcon(icon);
+                            fantasma_label[1][2]=true;
+                            turno = false;
+                            t =false;
+                        }
+                        else
+                        {
+                            if(turno==false)
+                             {
+                                
+                                 JOptionPane.showMessageDialog(null, "Es turno del segundo jugador.");
+                             }
+                             else
+                             {
+                                 JOptionPane.showMessageDialog(null, "No hay posiciones disponibles");
+                             }
+                        }
                  }
                 /*
                 if(fantasmas_j2 == 7)
@@ -909,9 +950,7 @@ if(fantasmas_j2 == 7)
                 else 
                 JOptionPane.showMessageDialog(this, "No puedes colocar fantasmas aqui, le toca al jugador 2");
                 */
-            }
-           else
-               JOptionPane.showMessageDialog(null, "Actualmente no hay ningun fantasma en esta posicion");
+           
        }
     }//GEN-LAST:event_jLabel9MouseClicked
 
@@ -919,40 +958,59 @@ if(fantasmas_j2 == 7)
                if(fantasmas_j1>0)
        {
 
-        boolean pos = tb.ubicar_fantasma(1,3);
-        if(pos==true){
-           arreglo_labels[1][3].setIcon(icon);
-           fantasmas_j1--;
-           fantasma_label[1][3]=true;
-        }
-        else{
-            JOptionPane.showMessageDialog(this, "No puedes poner el fantasma ahi");
-        }
-       
+            boolean pos = tb.ubicar_fantasma(1,3);
+            if(pos==true)
+            {
+               arreglo_labels[1][3].setIcon(icon);
+               fantasmas_j1--;
+               fantasma_label[1][3]=true;
+               fantasma_label[2][3]=false;
+               mover_fantasma[1][3]=false;
+               mover_fantasma[2][3]=false;
+           
+            }        
        }
       else
        {
-           if(fantasma_label[1][3]==true)
-           {
-                fantasma_label[2][3]=false;
-                if(t == false && turno==true &&(fantasma_label[1][4]==false||fantasma_label[1][2]==false||fantasma_label[2][3]==false))           
+          
+                Boolean mover_fants = mover_fantasmitas(1,3);
+                Boolean pos_disponibles = identificar_pos_disponibles(1,3);
+                if(t == false&&turno==true&&pos_disponibles==true)           
                  {
                     jLabel10.setIcon(null);
                     t = true;      
                     fantasma_label[1][3]=false;
+                    mover_fantasma[1][3]=true;
+                    if(arreglo_labels[1][3].getBackground().equals(Color.RED))
+                    {
+                        color=false;
+                    }
+                    else
+                        color=true;
+                    
+                    if(pos_disponibles==false)
+                        JOptionPane.showMessageDialog(this, "No hay posiciones disponibles.");
                  }
                  else
                  {
 
-                    if(turno==false)
-                     {
-                         t = false;
-                         JOptionPane.showMessageDialog(null, "Es turno del segundo jugador.");
-                     }
-                     else
-                     {
-                         JOptionPane.showMessageDialog(null, "No hay posiciones disponibles");
-                     }
+                        if(t == true && turno==true &&mover_fants==true && fantasma_label[1][3]==false) 
+                        {
+                            arreglo_labels[1][3].setIcon(icon);
+                            fantasma_label[1][3]=true;
+                            turno = false;
+                            t =false;
+                            falsificar_pos(1,3);
+                        }
+                        else
+                        {
+                            if(turno==false)
+                                 JOptionPane.showMessageDialog(null, "Es turno del segundo jugador.");
+                            else if (mover_fants==false)
+                                JOptionPane.showMessageDialog(null, "No puede hacer ese movimiento.");
+                            else if (fantasma_label[1][3]==true)
+                                JOptionPane.showMessageDialog(null, "Ya hay un fantasma en esta posicion. ");
+                        }
                  }
                 /*
                 if(fantasmas_j2 == 7)
@@ -960,48 +1018,71 @@ if(fantasmas_j2 == 7)
                 else 
                 JOptionPane.showMessageDialog(this, "No puedes colocar fantasmas aqui, le toca al jugador 2");
                 */
-            }
-           else
-               JOptionPane.showMessageDialog(null, "Actualmente no hay ningun fantasma en esta posicion");
+            
+            
         }
                
     }//GEN-LAST:event_jLabel10MouseClicked
 
     private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
-     if(fantasmas_j1>0)
+           
+            
+       if(fantasmas_j1>0)
        {
 
-        boolean pos = tb.ubicar_fantasma(1,4);
-        if(pos==true){
-           arreglo_labels[1][4].setIcon(icon);
-            fantasmas_j1--;
-            fantasma_label[1][4]=true;
-        }
-        else{
-            JOptionPane.showMessageDialog(this, "No puedes poner el fantasma ahi");
-        }
+            boolean pos = tb.ubicar_fantasma(1,4);
+            if(pos==true)
+            {
+                arreglo_labels[1][4].setIcon(icon);
+                fantasmas_j1--;
+                fantasma_label[1][4]=true;  
+                mover_fantasma[1][4]=false;
+                fantasma_label[2][4]=false; 
+                mover_fantasma[2][4]=false;
+                mover_fantasma[2][5]=false;
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(this, "No puedes poner el fantasma ahi");
+            }
       
        }
       else
        {
-           fantasma_label[2][4]=false;
-           if(t == false && turno==true &&(fantasma_label[2][4]==false||fantasma_label[1][3]==false))           
-            {
+            Boolean mover_fants = mover_fantasmitas(1,4);
+            Boolean pos_disponibles = identificar_pos_disponibles(1,4);
+           
+           if(t == false && turno==true && pos_disponibles==true)           
+            {              
                jLabel11.setIcon(null);
                t = true;           
+               fantasma_label[1][4]=false;
+               mover_fantasma[1][4]=true;
+               if(pos_disponibles==false)
+                   JOptionPane.showMessageDialog(this, "No hay posiciones disponibles. ");
             }
+           
             else
             {
-                
-               if(turno==false)
+                if(t == true && turno==true && fantasma_label[1][4]==false&& mover_fants==true)
                 {
-                    t = false;
-                    JOptionPane.showMessageDialog(null, "Es turno del primer jugador.");
+                    arreglo_labels[1][4].setIcon(icon);
+                    fantasma_label[1][4]=true;
+                    mover_fantasma[1][4]=false;
+                    turno = false;
+                    t =false;
+                    falsificar_pos(1,4);
                 }
                 else
-                {
-                    JOptionPane.showMessageDialog(null, "No hay posiciones disponibles");
+                {         
+                    if(turno==false)
+                        JOptionPane.showMessageDialog(null, "Es turno del segundo jugador.");
+                    else if(mover_fants==false)
+                         JOptionPane.showMessageDialog(null, "No puedes hacer ese movimiento.");
+                    else if(fantasma_label[1][4]==true)
+                         JOptionPane.showMessageDialog(null, "Ya hay un fantasma en esta posicion.");                       
                 }
+                    
             }
            /*
            if(fantasmas_j2 == 7)
@@ -1023,6 +1104,8 @@ if(fantasmas_j2 == 7)
            arreglo_labels[4][1].setIcon(icon);
            fantasmas_j2--;
            fantasma_label[4][1]=true;
+           fantasma_label[3][1]=false;
+           mover_fantasma[3][1]=false;
           // arreglo_labels[4][1].setBackground(Color.red);
         }
         else{
@@ -1034,13 +1117,30 @@ if(fantasmas_j2 == 7)
        {
             if(t == false && turno==false){
                jLabel26.setIcon(null);
-               t = true;           
+               t = true;      
+               fantasma_label[4][1]=false;
             }
             else
             {
-               //jLabel34.setIcon(icon);
-               t = false;
-               JOptionPane.showMessageDialog(null, "Es turno del primer jugador.");
+               
+                        if(t == true && turno==false &&(fantasma_label[5][1]==false||fantasma_label[4][2]==false||fantasma_label[3][1]==false))                   {
+                            arreglo_labels[4][1].setIcon(icon);
+                            fantasma_label[4][1]=true;
+                            turno = true;
+                            t =false;
+                        }
+                        else
+                        {
+                            if(turno==true)
+                             {
+                                 
+                                 JOptionPane.showMessageDialog(null, "Es turno del segundo jugador.");
+                             }
+                             else
+                             {
+                                 JOptionPane.showMessageDialog(null, "No hay posiciones disponibles");
+                             }
+                        }
             }
            //JOptionPane.showMessageDialog(this, "El jugador 1 no ha terminado de posicionar los fantasmas");
            /*
@@ -1058,6 +1158,8 @@ if(fantasmas_j2 == 7)
                arreglo_labels[4][2].setIcon(icon);
                fantasmas_j2--;   
                fantasma_label[4][2] = true;
+               fantasma_label[3][2]=false;
+               mover_fantasma[3][2]=false; 
              //  arreglo_labels[4][2].setBackground(Color.red);
             }
             else
@@ -1069,16 +1171,38 @@ if(fantasmas_j2 == 7)
        }
       else
        {   
-           if(fantasmas_j2==0)
-           {
-               
-               JOptionPane.showMessageDialog(this, "ok:");
-               //tb.identificar_pos_disponibles(4, 2);
-           }
-           else
-           {
-               JOptionPane.showMessageDialog(this, "El jugador 1 no ha terminado de posicionar los fantasmas");
-           }
+           
+            
+               if(t == false && turno==false &&(fantasma_label[3][2]==false||fantasma_label[4][3]==false||fantasma_label[4][1]==false||fantasma_label[5][2]==false))           
+               {
+               jLabel27.setIcon(null);
+               t = true;      
+               fantasma_label[4][2]=false;
+               }
+            else
+            {
+                
+              
+                        if(t == true && turno==false &&(fantasma_label[5][2]==false||fantasma_label[4][3]==false)||fantasma_label[4][2]==false)                   {
+                            arreglo_labels[4][2].setIcon(icon);
+                            fantasma_label[4][2]=true;
+                            turno = true;
+                            t =false;
+                        }
+                        else
+                        {
+                            if(turno==true)
+                             {
+                                 
+                                 JOptionPane.showMessageDialog(null, "Es turno del segundo jugador.");
+                             }
+                             else
+                             {
+                                 JOptionPane.showMessageDialog(null, "No hay posiciones disponibles");
+                             }
+                        }
+            }
+            
            /*
            aquel pijaso de codigo de mover fantasma
            */ 
@@ -1089,26 +1213,48 @@ if(fantasmas_j2 == 7)
         
         if(fantasmas_j1==0 && fantasmas_j2 >0)
        {
-        boolean pos = tb.ubicar_fantasma(4,3);
-        if(pos==true)
-        {
-           arreglo_labels[4][3].setIcon(icon);
-           fantasmas_j2--; 
-           fantasma_label[4][3]=true;
-           //arreglo_labels[4][3].setBackground(Color.red);
-        }
-        else
-        {
-            JOptionPane.showMessageDialog(this, "No puedes poner el fantasma ahi");
-        }
-       
+            boolean pos = tb.ubicar_fantasma(4,3);
+            if(pos==true)
+            {
+               arreglo_labels[4][3].setIcon(icon);
+               fantasmas_j2--; 
+               fantasma_label[4][3]=true;
+               fantasma_label[3][3]=false;
+               mover_fantasma[3][3]=false;
+               //arreglo_labels[4][3].setBackground(Color.red);
+            } 
        }
       else
        {
-           JOptionPane.showMessageDialog(this, "El jugador 1 no ha terminado de posicionar los fantasmas");
-           /*
-           aquel pijaso de codigo de mover fantasma
-           */ 
+           if(t == false && turno==false &&(fantasma_label[4][4]==false||fantasma_label[4][2]==false||fantasma_label[3][3]==false||fantasma_label[5][3]==false))           
+               {
+               jLabel28.setIcon(null);
+               t = true;      
+               fantasma_label[4][3]=false;
+               mover_fantasma[3][3]=false;
+               }
+            else
+            {
+                
+                        if(t == true && turno==false &&(fantasma_label[5][3]==false||fantasma_label[4][4]==false)||fantasma_label[4][3]==false)                   {
+                            arreglo_labels[4][3].setIcon(icon);
+                            fantasma_label[4][3]=true;
+                            turno = true;
+                            t =false;
+                        }
+                        else
+                        {
+                            if(turno==true)
+                             {
+                                 
+                                 JOptionPane.showMessageDialog(null, "Es turno del segundo jugador.");
+                             }
+                             else
+                             {
+                                 JOptionPane.showMessageDialog(null, "No hay posiciones disponibles");
+                             }
+                        }
+            }
        }
                     
     }//GEN-LAST:event_jLabel28MouseClicked
@@ -1122,19 +1268,43 @@ if(fantasmas_j2 == 7)
         if(pos==true){
            arreglo_labels[4][4].setIcon(icon);
            fantasmas_j2--;
-            
-        }
-        else{
-            JOptionPane.showMessageDialog(this, "No puedes poner el fantasma ahi");
-        }
-       
+           fantasma_label[4][4]=true;
+           fantasma_label[3][4]=false;
+           mover_fantasma[3][4]=false;
+           
+        }    
        }
       else
        {
-           JOptionPane.showMessageDialog(this, "El jugador 1 no ha terminado de posicionar los fantasmas");
-           /*
-           aquel pijaso de codigo de mover fantasma
-           */ 
+               if(t == false && turno==false &&(fantasma_label[4][3]==false||fantasma_label[3][4]==false))          
+               {
+               jLabel29.setIcon(null);
+               t = true;      
+               fantasma_label[4][4]=false;
+               mover_fantasma[4][4]=true;
+               }
+            else
+            {
+                
+                        if(t == true && turno==false &&(fantasma_label[5][4]==false||fantasma_label[4][3]==false))           {
+                            arreglo_labels[4][4].setIcon(icon);
+                            fantasma_label[4][4]=true;
+                            turno = true;
+                            t =false;
+                        }
+                        else
+                        {
+                            if(turno==true)
+                             {
+                                 
+                                 JOptionPane.showMessageDialog(null, "Es turno del segundo jugador.");
+                             }
+                             else
+                             {
+                                 JOptionPane.showMessageDialog(null, "No hay posiciones disponibles");
+                             }
+                        }
+            }
        }
     }//GEN-LAST:event_jLabel29MouseClicked
 
@@ -1147,7 +1317,7 @@ if(fantasmas_j2 == 7)
         if(pos==true){
            arreglo_labels[5][1].setIcon(icon);
            fantasmas_j2--;
-            
+           fantasma_label[5][1]=true;
         }
         else{
             JOptionPane.showMessageDialog(this, "No puedes poner el fantasma ahi");
@@ -1156,10 +1326,24 @@ if(fantasmas_j2 == 7)
        }
       else
        {
-           JOptionPane.showMessageDialog(this, "El jugador 1 no ha terminado de posicionar los fantasmas");
-           /*
-           aquel pijaso de codigo de mover fantasma
-           */ 
+           if(t == false && turno==false &&(fantasma_label[4][1]==false||fantasma_label[5][2]==false))           {
+               jLabel32.setIcon(null);
+               t = true;           
+               fantasma_label[5][1]=false;
+            }
+            else
+            {
+                
+               if(turno==true)
+                {
+                    
+                    JOptionPane.showMessageDialog(null, "Es turno del segundo jugador.");
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(null, "No hay posiciones disponibles");
+                }
+            }
        }
     }//GEN-LAST:event_jLabel32MouseClicked
 
@@ -1181,10 +1365,25 @@ if(fantasmas_j2 == 7)
        }
       else
        {
-           JOptionPane.showMessageDialog(this, "El jugador 1 no ha terminado de posicionar los fantasmas");
-           /*
-           aquel pijaso de codigo de mover fantasma
-           */ 
+           if(t == false && turno==false &&(fantasma_label[5][1]==false||fantasma_label[5][3]==false||fantasma_label[4][2]==false))        
+           {
+               jLabel33.setIcon(null);
+               t = true;           
+               fantasma_label[5][2]=false;
+            }
+            else
+            {
+                
+               if(turno==true)
+                {
+                    
+                    JOptionPane.showMessageDialog(null, "Es turno del segundo jugador.");
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(null, "No hay posiciones disponibles");
+                }
+            }
        }
     }//GEN-LAST:event_jLabel33MouseClicked
 
@@ -1197,7 +1396,7 @@ if(fantasmas_j2 == 7)
         if(pos==true){
            arreglo_labels[5][3].setIcon(icon);
            fantasmas_j2--;
-            
+           fantasma_label[5][3]=true;
         }
         else{
             JOptionPane.showMessageDialog(this, "No puedes poner el fantasma ahi");
@@ -1206,16 +1405,25 @@ if(fantasmas_j2 == 7)
        }
       else
        {
-           if(t == false){
+           if(t == false && turno==false &&(fantasma_label[5][2]==false||fantasma_label[5][4]==false)||fantasma_label[4][3]==false)          
+           {
                jLabel34.setIcon(null);
-               
-               
-           }else
-               jLabel34.setIcon(icon);
-           identificar_pos_disponibles(2, 3);
-           /*
-           aquel pijaso de codigo de mover fantasma
-           */ 
+               t = true;           
+               fantasma_label[5][3]=false;
+            }
+            else
+            {
+                
+               if(turno==true)
+                {
+                    
+                    JOptionPane.showMessageDialog(null, "Es turno del segundo jugador.");
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(null, "No hay posiciones disponibles");
+                }
+            }
        }
     }//GEN-LAST:event_jLabel34MouseClicked
 
@@ -1227,7 +1435,7 @@ if(fantasmas_j2 == 7)
         if(pos==true){
            arreglo_labels[5][4].setIcon(icon);
            fantasmas_j2--;
-            
+           fantasma_label[5][4]=true;
         }
         else{
             JOptionPane.showMessageDialog(this, "No puedes poner el fantasma ahi");
@@ -1236,61 +1444,134 @@ if(fantasmas_j2 == 7)
        }
       else
        {
-           JOptionPane.showMessageDialog(this, "El jugador 1 no ha terminado de posicionar los fantasmas");
-           /*
-           aquel pijaso de codigo de mover fantasma
-           */ 
+           if(t == false && turno==false &&(fantasma_label[5][4]==false||fantasma_label[4][4]==false))
+                   {
+               jLabel35.setIcon(null);
+               t = true;           
+               fantasma_label[5][4]=false;
+            }
+            else
+            {
+                
+               if(turno==true)
+                {
+                    
+                    JOptionPane.showMessageDialog(null, "Es turno del segundo jugador.");
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(null, "No hay posiciones disponibles");
+                }
+            }
        }
     }//GEN-LAST:event_jLabel35MouseClicked
 
     private void jLabel16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel16MouseClicked
         if(fantasmas_j1 == 0 && fantasmas_j2 == 0 && turno== true)
        {
-              if(/*fantasma_label[4][4] == false || fantasma_label[] &&*/ t == false)
-              { //Si por lo menos hay una posicion en el arreglo false que se quite y poner una variable t paraa poder mover el icono
-               jLabel16.setIcon(null);
-               t = true;
-               //fantasma_label[1][4] = false;
-               
+                Boolean mover_fants = mover_fantasmitas(2,3);
+                Boolean pos_disponibles = identificar_pos_disponibles(2,3);
+              if(t == false && mover_fants==true)
+               { //Si por lo menos hay una posicion en el arreglo false que se quite y poner una variable t paraa poder mover el icono
+                jLabel16.setIcon(null);
+                t = true;
+                fantasma_label[2][3] = false;
+                mover_fantasma[2][3] = true;
                }
-              else /*if( t == true && thislabel = false)*/
+              else
               {
-                  jLabel16.setIcon(icon);
-                  t = false;
-                  turno = false;
-                    //}else
-                    //  JOptionPane.showMessageDialog(this, "No hay ninguna posicion disponible para mover el fanstama");
+                 if(t == true && fantasma_label[2][3]==false && mover_fants==true)
+                    {
+                        jLabel16.setIcon(icon);
+                        t = false;
+                        turno = false;
+                        fantasma_label[2][3]=true;        
+                        falsificar_pos(2,3);
+                        cambiar_backg(2,3);
+                    }
+                    else
+                    {
+                        if(fantasma_label[2][3]==true&&mover_fants==false)
+                            JOptionPane.showMessageDialog(this, "No puede hacer ese movimiento.");
+                        else if(fantasma_label[2][3]==true)
+                            JOptionPane.showMessageDialog(null, "Ya hay un fantasma en esta posicion.");
+                        else if(mover_fants==false)
+                            JOptionPane.showMessageDialog(this, "No puede hacer ese movimiento.");
+                        else if(turno==false)
+                            JOptionPane.showMessageDialog(null, "Es el turno del segundo jugador.");
+                    }       
               }
         }
     }//GEN-LAST:event_jLabel16MouseClicked
 
     private void jLabel21MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel21MouseClicked
-        fantasma_label[3][2]=false;
-        
+        if(fantasmas_j1 == 0 && fantasmas_j2 == 0 && turno== false)
+       {
+               if( t == false)
+               { //Si por lo menos hay una posicion en el arreglo false que se quite y poner una variable t paraa poder mover el icono
+                    jLabel21.setIcon(null);
+                    t = true;
+                    fantasma_label[3][2] = false;
+
+               }
+              else
+                {
+                    if( t == true && fantasma_label[3][2]==false && (fantasma_label[4][2]==false||fantasma_label[2][2]==false))
+                    {
+                        jLabel21.setIcon(icon);
+                        t = false;
+                        turno = true;
+                        fantasma_label[3][2]=true;
+                          //}else
+                          //  JOptionPane.showMessageDialog(this, "No hay ninguna posicion disponible para mover el fanstama");
+                    }
+                    else
+                    {
+                        if(fantasma_label[3][2]==true)
+                            JOptionPane.showMessageDialog(this, "Ya hay un fantasma en esta posicion.");
+                        else
+                            JOptionPane.showMessageDialog(this, "No puede hacer ese movimiento");
+                    }
+                }
+        }
+        else
+        {
+            
+        }
     }//GEN-LAST:event_jLabel21MouseClicked
 
     private void jLabel20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel20MouseClicked
         // TODO add your handling code here:
         
-        if(fantasmas_j1 == 0 && fantasmas_j2 == 0 && turno== false)
-        {
-            if(/*fantasma_label[4][4] == false || fantasma_label[] &&*/ t == false)//Si por lo menos hay una posicion en el arreglo false que se quite y poner una variable t paraa poder mover el icono
-            {                
-               jLabel20.setIcon(null);
-               t = true;
-               fantasma_label[0][0] = false;
-               
-            }
-            else /*if( t == true &&  fantasma_label[0][0]== false )*/
-            {
-               jLabel20.setIcon(icon);
-               t = false;
-               turno = true;
-           //}else
-             //  JOptionPane.showMessageDialog(this, "No hay ninguna posicion disponible para mover el fanstama");
-            }
+       if(fantasmas_j1 == 0 && fantasmas_j2 == 0 && turno== false)
+       {
+               if( t == false)
+               { //Si por lo menos hay una posicion en el arreglo false que se quite y poner una variable t paraa poder mover el icono
+                    jLabel20.setIcon(null);
+                    t = true;
+                    fantasma_label[3][1] = false;
+
+               }
+              else
+                {
+                    if( t == true && fantasma_label[3][1]==false && (fantasma_label[4][1]==false||fantasma_label[3][2]==false))
+                    {
+                        jLabel20.setIcon(icon);
+                        t = false;
+                        turno = true;
+                        fantasma_label[3][1]=true;
+                          //}else
+                          //  JOptionPane.showMessageDialog(this, "No hay ninguna posicion disponible para mover el fanstama");
+                    }
+                    else
+                    {
+                        if(fantasma_label[3][1]==true)
+                            JOptionPane.showMessageDialog(this, "Ya hay un fantasma en esta posicion.");
+                        else
+                            JOptionPane.showMessageDialog(this, "No puede hacer ese movimiento");
+                    }
+                }
         }
-        
         else
         {
             
@@ -1298,22 +1579,50 @@ if(fantasmas_j2 == 7)
     }//GEN-LAST:event_jLabel20MouseClicked
 
     private void jLabel17MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel17MouseClicked
-       if(fantasmas_j1 == 0 && fantasmas_j2 == 0 && turno== true)
+       
+        if(fantasmas_j1 == 0 && fantasmas_j2 == 0 && turno== true)
        {
-              if(/*fantasma_label[4][4] == false || fantasma_label[] &&*/ t == false)
-              { //Si por lo menos hay una posicion en el arreglo false que se quite y poner una variable t paraa poder mover el icono
-               jLabel17.setIcon(null);
-               t = true;
-               fantasma_label[1][4] = false;
-               
+                
+                
+                    
+                   
+                Boolean mover_fants = mover_fantasmitas(2,4);
+                Boolean pos_disponibles = identificar_pos_disponibles(2,4);
+                
+              if( t == false && pos_disponibles==true)
+              { //Si por lo menos hay una posicion en el arreglo false que se quite y poner una variable t paraa poder mover el icono                                 
+                jLabel17.setIcon(null);
+                t = true;
+                fantasma_label[2][4] = false;
+                mover_fantasma[2][4] = true;
+                mover_fantasma[2][5] = false;
+                if(arreglo_labels[2][4].getBackground().equals(Color.RED))
+                {
+                    color=false;
+                }
+                else
+                    color=true;
                }
-              else /*if( t == true && thislabel = false)*/
+              else
               {
-                  jLabel17.setIcon(icon);
-                  t = false;
-                  turno = false;
-                    //}else
-                    //  JOptionPane.showMessageDialog(this, "No hay ninguna posicion disponible para mover el fanstama");
+                    if( t == true && mover_fants==true && fantasma_label[2][4]==false)
+                    {                     
+                        jLabel17.setIcon(icon);
+                        t = false;
+                        turno = false;
+                        fantasma_label[2][4]=true;
+                        falsificar_pos(2,4);   
+                        cambiar_backg(2,4);
+                        
+                    }
+                    else
+                    {
+                        if(fantasma_label[2][4]==true)
+                            JOptionPane.showMessageDialog(this, "Ya hay un fantasma en esta posicion.");
+                        else if(mover_fants==false)
+                            JOptionPane.showMessageDialog(this, "No puede hacer ese movimiento");
+                        
+                    }
               }
         }
         else
@@ -1337,28 +1646,49 @@ if(fantasmas_j2 == 7)
               { //Si por lo menos hay una posicion en el arreglo false que se quite y poner una variable t paraa poder mover el icono
                jLabel15.setIcon(null);
                t = true;
-               //fantasma_label[1][4] = false;
+               fantasma_label[2][2] = false;
                
                }
               else /*if( t == true && thislabel = false)*/
               {
-                  jLabel15.setIcon(icon);
-                  t = false;
-                  turno = false;
-                    //}else
-                    //  JOptionPane.showMessageDialog(this, "No hay ninguna posicion disponible para mover el fanstama");
+                  if( t == false)
+              { //Si por lo menos hay una posicion en el arreglo false que se quite y poner una variable t paraa poder mover el icono
+               jLabel15.setIcon(null);
+               t = true;
+               fantasma_label[1][4] = false;
+               
+               }
+              else
+              {
+                    if( (t == true && fantasma_label[2][2]==false) && (fantasma_label[1][2]==false||fantasma_label[2][1]==false||fantasma_label[2][3]==false))
+                    {
+                        jLabel15.setIcon(icon);
+                        t = false;
+                        turno = false;
+                        fantasma_label[2][2]=true;
+                          //}else
+                          //  JOptionPane.showMessageDialog(this, "No hay ninguna posicion disponible para mover el fanstama");
+                    }
+                    else
+                    {
+                        if(fantasma_label[2][2]==true)
+                            JOptionPane.showMessageDialog(this, "Ya hay un fantasma en esta posicion.");
+                        else
+                            JOptionPane.showMessageDialog(this, "No puede hacer ese movimiento");
+                    }
+              }  //JOptionPane.showMessageDialog(this, "No hay ninguna posicion disponible para mover el fanstama");
               }
         }
     }//GEN-LAST:event_jLabel15MouseClicked
 
     private void jLabel14MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel14MouseClicked
-        if(fantasmas_j1 == 0 && fantasmas_j2 == 0 && turno== true)
+        if(fantasmas_j1 == 0 && fantasmas_j2 == 0 && turno== true )
        {
               if(/*fantasma_label[4][4] == false || fantasma_label[] &&*/ t == false)
               { //Si por lo menos hay una posicion en el arreglo false que se quite y poner una variable t paraa poder mover el icono
                jLabel14.setIcon(null);
                t = true;
-               //fantasma_label[1][4] = false;
+               fantasma_label[2][1] = false;
                
                }
               else /*if( t == true && thislabel = false)*/
@@ -1371,6 +1701,87 @@ if(fantasmas_j2 == 7)
               }
         }
     }//GEN-LAST:event_jLabel14MouseClicked
+
+    private void jLabel22MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel22MouseClicked
+        if(fantasmas_j1 == 0 && fantasmas_j2 == 0 && turno== false)
+       {
+               if( t == false)
+               { //Si por lo menos hay una posicion en el arreglo false que se quite y poner una variable t paraa poder mover el icono
+                    jLabel22.setIcon(null);
+                    t = true;
+                    fantasma_label[3][3] = false;
+
+               }
+              else
+                {
+                    if( t == true && turno==false && (fantasma_label[3][3]==false || fantasma_label[4][3]==false)||fantasma_label[2][2]==false)
+                    {
+                        jLabel22.setIcon(icon);
+                        t = false;
+                        turno = true;
+                        fantasma_label[3][3]=true;
+                          //}else
+                          //  JOptionPane.showMessageDialog(this, "No hay ninguna posicion disponible para mover el fanstama");
+                    }
+                    else
+                    {
+                        if(fantasma_label[3][3]==true)
+                            JOptionPane.showMessageDialog(this, "Ya hay un fantasma en esta posicion.");
+                        else
+                            JOptionPane.showMessageDialog(this, "No puede hacer ese movimiento");
+                    }
+                }
+        }
+        else
+        {
+            
+        }
+    }//GEN-LAST:event_jLabel22MouseClicked
+
+    private void jLabel23MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel23MouseClicked
+        if(fantasmas_j1 == 0 && fantasmas_j2 == 0 && turno== false)
+       {
+               if( t == false)
+               { //Si por lo menos hay una posicion en el arreglo false que se quite y poner una variable t paraa poder mover el icono
+                    jLabel23.setIcon(null);
+                    t = true;
+                    fantasma_label[3][4] = false;
+
+               }
+              else
+                {
+                    if( t == true && fantasma_label[3][4]==false && (fantasma_label[4][4]==false))
+                    {
+                        jLabel23.setIcon(icon);
+                        t = false;
+                        turno = true;
+                        fantasma_label[3][4]=true;
+                        cambiar_backg(2,4);
+                          //}else
+                          //  JOptionPane.showMessageDialog(this, "No hay ninguna posicion disponible para mover el fanstama");
+                    }
+                    else
+                    {
+                        if(fantasma_label[3][4]==true)
+                            JOptionPane.showMessageDialog(this, "Ya hay un fantasma en esta posicion.");
+                        else
+                            JOptionPane.showMessageDialog(this, "No puede hacer ese movimiento");
+                    }
+                }
+        }
+        else
+        {
+            
+        }
+    }//GEN-LAST:event_jLabel23MouseClicked
+
+    private void jLabel28MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel28MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel28MouseEntered
+
+    private void jLabel17MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel17MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel17MouseEntered
     //Funcion booleana(posicion del fantasma que queremos mover){
   //if(arreglo1 && arreglo2)
     //if(
@@ -1521,28 +1932,96 @@ public void Prueba(){
     arreglo_labels[1][1].setBackground(Color.yellow);
     
 }
- public void identificar_pos_disponibles(int fila, int columna)
+ public boolean identificar_pos_disponibles(int fila, int columna)
    {
-       posicionamiento_de_labels_en_arreglo();
      
+       boolean disponibilidad=false;
        
-       fantasma_label[1][3] = false;
-       fantasma_label[3][3] = false;
-       fantasma_label[2][2] = false;
-       fantasma_label[2][4] = false;
-     //
+       if(fila-1>=0 && fantasma_label[fila-1][columna]==false)
+       {
+            disponibilidad=true;
+            arreglo_labels[fila-1][columna].setBackground(Color.GREEN);
+       }
+       if(fila+1<=5 && fantasma_label[fila+1][columna]==false)
+       {
+           disponibilidad=true;
+           arreglo_labels[fila+1][columna].setBackground(Color.GREEN);
+       }
        
-       if(fantasma_label[fila-1][columna]== false)
-        arreglo_labels[fila-1][columna].setBackground(Color.YELLOW);      
-       if(fantasma_label[fila+1][columna] == false)
-        arreglo_labels[fila+1][columna].setBackground(Color.YELLOW);
-       if(fantasma_label[fila][columna+1] == false)
-        arreglo_labels[fila][columna+1].setBackground(Color.YELLOW);
-       if(fantasma_label[fila][columna-1] == false)
-        arreglo_labels[fila][columna-1].setBackground(Color.YELLOW);
+       if(columna+1<5 && fantasma_label[fila][columna+1]==false)
+       {
+           disponibilidad=true;
+           arreglo_labels[fila][columna+1].setBackground(Color.GREEN);
+       }
        
-       //return disponibilidad;
+       if(columna-1>0 && fantasma_label[fila][columna-1]==false)
+       {
+           disponibilidad=true;
+           arreglo_labels[fila][columna-1].setBackground(Color.GREEN);
+       }
+       
+       return disponibilidad;
        
    }
+ public boolean mover_fantasmitas(int fila, int columna)
+ {
+     boolean disponibilidad_mover=false;
+       
+       if(fila-1>=0 && mover_fantasma[fila-1][columna]==true)
+        disponibilidad_mover=true;
+       
+       if(fila+1<=5 && mover_fantasma[fila+1][columna]==true)
+        disponibilidad_mover=true;
+       
+       if(columna+1<5 && mover_fantasma[fila][columna+1]==true)
+        disponibilidad_mover=true;
+       
+       if(columna-1>0 && mover_fantasma[fila][columna-1]==true)
+        disponibilidad_mover=true;
+       
+       return disponibilidad_mover;
+ }
+ 
+ public void falsificar_pos(int fila, int columna)
+ {
+      if(fila-1>=0 && mover_fantasma[fila-1][columna]==true)
+            mover_fantasma[fila-1][columna]=false;
+       
+       if(fila+1<=5 && mover_fantasma[fila+1][columna]==true)
+            mover_fantasma[fila+1][columna]=false;
+       
+       if(columna+1<5 && mover_fantasma[fila][columna+1]==true)
+            mover_fantasma[fila][columna+1]=false;
+       
+       if(columna-1>0 && mover_fantasma[fila][columna-1]==true)
+            mover_fantasma[fila][columna-1]=false;
+ }
 
+ public void cambiar_backg(int fila, int columna)
+ {
+     if(color==true)
+     {
+       arreglo_labels[fila][columna].setBackground(Color.red);
+       if(fila-1>=0)       
+           arreglo_labels[fila-1][columna].setBackground(Color.BLACK);
+       if(fila+1<=5)
+           arreglo_labels[fila+1][columna].setBackground(Color.BLACK);
+       if(columna+1<5)
+           arreglo_labels[fila][columna+1].setBackground(Color.BLACK);
+       if(columna-1>0)
+           arreglo_labels[fila][columna-1].setBackground(Color.BLACK);
+     }
+     else
+     {
+         arreglo_labels[fila][columna].setBackground(Color.BLACK);
+       if(fila-1>=0)       
+           arreglo_labels[fila-1][columna].setBackground(Color.RED);
+       if(fila+1<=5)
+           arreglo_labels[fila+1][columna].setBackground(Color.RED);
+       if(columna+1<5)
+           arreglo_labels[fila][columna+1].setBackground(Color.RED);
+       if(columna-1>0)
+           arreglo_labels[fila][columna-1].setBackground(Color.RED);
+     }
+ }
 }
