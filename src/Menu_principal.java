@@ -54,6 +54,7 @@ public class Menu_principal extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jButton1.setFont(new java.awt.Font("Franklin Gothic Medium Cond", 1, 18)); // NOI18N
         jButton1.setText("Jugar Ghost");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -65,8 +66,9 @@ public class Menu_principal extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 170, 116, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 190, 150, 40));
 
+        Configuracion.setFont(new java.awt.Font("Franklin Gothic Medium Cond", 1, 18)); // NOI18N
         Configuracion.setText("Configuracion");
         Configuracion.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -78,24 +80,27 @@ public class Menu_principal extends javax.swing.JFrame {
                 ConfiguracionActionPerformed(evt);
             }
         });
-        getContentPane().add(Configuracion, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 210, 116, -1));
+        getContentPane().add(Configuracion, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 250, 150, 40));
 
+        Reporte.setFont(new java.awt.Font("Franklin Gothic Medium Cond", 1, 18)); // NOI18N
         Reporte.setText("Reporte");
         Reporte.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Llamar_Reporte(evt);
             }
         });
-        getContentPane().add(Reporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 250, 116, -1));
+        getContentPane().add(Reporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 310, 150, 40));
 
+        jButton3.setFont(new java.awt.Font("Franklin Gothic Medium Cond", 1, 18)); // NOI18N
         jButton3.setText("Mi perfil");
         jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Llamar_perfil(evt);
             }
         });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 290, 116, -1));
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 370, 150, 40));
 
+        jButton4.setFont(new java.awt.Font("Franklin Gothic Medium Cond", 1, 18)); // NOI18N
         jButton4.setText("Cerrar Sesion");
         jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -105,18 +110,18 @@ public class Menu_principal extends javax.swing.JFrame {
                 jButton4MouseEntered(evt);
             }
         });
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 330, 116, -1));
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 430, 150, 40));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fnatasminesnew.gif"))); // NOI18N
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 80, -1, 440));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 110, -1, 440));
 
-        jLabel1.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 2, 48)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Franklin Gothic Demi Cond", 2, 58)); // NOI18N
         jLabel1.setText("Menu Principal");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 20, 290, 120));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 370, 120));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/menu principal foto.png"))); // NOI18N
         jLabel2.setText("jLabel2");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 780, 530));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 860, 600));
 
         pack();
         setLocationRelativeTo(null);
