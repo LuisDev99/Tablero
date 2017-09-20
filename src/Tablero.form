@@ -196,13 +196,15 @@
                   <Component id="jLabel24" alignment="3" min="-2" pref="112" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel25" alignment="3" min="-2" pref="112" max="-2" attributes="0"/>
-                  <Component id="jLabel26" alignment="3" min="-2" pref="112" max="-2" attributes="0"/>
-                  <Component id="jLabel28" alignment="3" min="-2" pref="112" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabel27" alignment="0" min="-2" pref="112" max="-2" attributes="0"/>
-                  <Component id="jLabel29" alignment="3" min="-2" pref="112" max="-2" attributes="0"/>
-                  <Component id="jLabel30" alignment="3" min="-2" pref="112" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabel25" alignment="3" min="-2" pref="112" max="-2" attributes="0"/>
+                      <Component id="jLabel26" alignment="3" min="-2" pref="112" max="-2" attributes="0"/>
+                      <Component id="jLabel28" alignment="3" min="-2" pref="112" max="-2" attributes="0"/>
+                      <Component id="jLabel29" alignment="3" min="-2" pref="112" max="-2" attributes="0"/>
+                      <Component id="jLabel30" alignment="3" min="-2" pref="112" max="-2" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -285,6 +287,7 @@
       </Properties>
       <Events>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel5MouseClicked"/>
+        <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel5MouseEntered"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel8">
