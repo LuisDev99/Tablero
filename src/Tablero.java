@@ -2143,7 +2143,7 @@ if(fantasmas_j2 == 7)
     }//GEN-LAST:event_jLabel23MouseClicked
 
     private void jLabel28MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel28MouseEntered
-        // TODO add your handling code here:
+        // TODO add your hanoojiiuiuhuygy
     }//GEN-LAST:event_jLabel28MouseEntered
 
     private void jLabel17MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel17MouseEntered
